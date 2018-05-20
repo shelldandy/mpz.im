@@ -1,0 +1,4 @@
+name: mpz.im
+windows:
+  - editor: eval $EDITOR
+  - next: yarn develop
