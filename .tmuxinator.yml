@@ -1,4 +1,4 @@
 name: mpz
 windows:
   - editor: eval $EDITOR
-  - next: yarn develop
+  - main: yarn develop
