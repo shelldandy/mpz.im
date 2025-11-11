@@ -19,7 +19,8 @@ Personal website and blog built with Astro, Preact, and TypeScript.
 │   │   ├── Header.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Hero.tsx
-│   │   └── BlogPostCard.tsx
+│   │   ├── BlogPostCard.tsx
+│   │   └── Pagination.tsx
 │   ├── content/          # Content collections
 │   │   ├── config.ts     # Content schema definitions
 │   │   ├── posts/        # Blog posts (markdown)
@@ -34,8 +35,8 @@ Personal website and blog built with Astro, Preact, and TypeScript.
 │   │   ├── index.astro
 │   │   ├── 404.astro
 │   │   └── posts/
-│   │       ├── index.astro
-│   │       └── [slug].astro
+│   │       ├── [...page].astro  # Paginated posts list
+│   │       └── [slug].astro     # Individual blog posts
 │   └── styles/           # Global styles
 │       └── global.css
 ├── public/               # Static assets
@@ -116,6 +117,22 @@ hero: https://example.com/image.jpg  # Optional
 
 Your content here...
 ```
+
+## Features
+
+### Pagination
+
+The blog posts page supports pagination with 10 posts per page. You can customize the number of posts per page by editing the `pageSize` parameter in `src/pages/posts/[...page].astro`:
+
+```typescript
+return paginate(sortedPosts, { pageSize: 10 }); // Change 10 to your desired number
+```
+
+The pagination component shows:
+- Current page and total pages
+- Previous/Next navigation
+- Numbered page links with ellipsis for large page counts
+- Fully accessible with ARIA labels
 
 ## Deployment
 
