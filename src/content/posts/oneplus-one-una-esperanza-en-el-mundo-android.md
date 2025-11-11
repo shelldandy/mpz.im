@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-10-20 16:09:45+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/10/20/oneplus-one-una-esperanza-en-el-mundo-android/
 slug: oneplus-one-una-esperanza-en-el-mundo-android
 title: OnePlus One - Una esperanza en el mundo Android?

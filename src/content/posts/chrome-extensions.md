@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-09-22 14:00:55+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/09/22/5-extensiones-para-google-chrome-que-tienes-que-instalar/
 slug: 5-extensiones-para-google-chrome-que-tienes-que-instalar
 title: 5 Extensiones para Google Chrome que Tienes que Instalar

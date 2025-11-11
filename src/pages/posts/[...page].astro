@@ -5,6 +5,8 @@ import Page from '../../layouts/Page.astro';
 import BlogPostCard from '../../components/BlogPostCard';
 import Pagination from '../../components/Pagination';
 
+export const prerender = true;
+
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection('posts');
   const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());

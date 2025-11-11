@@ -12,6 +12,9 @@ const Header: FunctionalComponent = () => {
           <li>
             <a href="/posts">Posts</a>
           </li>
+          <li>
+            <a href="/contact">Contact</a>
+          </li>
         </ul>
       </nav>
     </header>

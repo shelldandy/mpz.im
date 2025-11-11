@@ -1,6 +1,5 @@
 ---
 title: Miguel Palau
-layout: Homepage
 hero: https://cl.ly/85ace316cba9/hero.jpg
 cta:
   label: Posts

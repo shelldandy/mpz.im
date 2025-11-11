@@ -1,7 +1,6 @@
 ---
 author: mike3run
 date: 2015-09-09 14:36:08+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/09/09/disen%cc%83o-web-responsable-parte-1/
 title: Diseño Web Responsable Parte 1
 ---

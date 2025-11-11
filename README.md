@@ -20,7 +20,8 @@ Personal website and blog built with Astro, Preact, and TypeScript.
 │   │   ├── Footer.tsx
 │   │   ├── Hero.tsx
 │   │   ├── BlogPostCard.tsx
-│   │   └── Pagination.tsx
+│   │   ├── Pagination.tsx
+│   │   └── ContactForm.tsx
 │   ├── content/          # Content collections
 │   │   ├── config.ts     # Content schema definitions
 │   │   ├── posts/        # Blog posts (markdown)
@@ -33,7 +34,10 @@ Personal website and blog built with Astro, Preact, and TypeScript.
 │   │   └── PageError.astro
 │   ├── pages/            # File-based routing
 │   │   ├── index.astro
+│   │   ├── contact.astro
 │   │   ├── 404.astro
+│   │   ├── api/
+│   │   │   └── contact.ts       # Telegram API endpoint
 │   │   └── posts/
 │   │       ├── [...page].astro  # Paginated posts list
 │   │       └── [slug].astro     # Individual blog posts
@@ -134,6 +138,28 @@ The pagination component shows:
 - Numbered page links with ellipsis for large page counts
 - Fully accessible with ARIA labels
 
+### Contact Form with Telegram Integration
+
+The contact page includes a form that sends messages to your Telegram via the Bot API:
+
+1. **Setup**: Copy `.env.example` to `.env` and configure:
+   ```bash
+   TELEGRAM_BOT_TOKEN=your_bot_token_from_botfather
+   TELEGRAM_CHAT_ID=your_telegram_chat_id
+   ```
+
+2. **Getting Telegram Credentials**:
+   - Create a bot with [@BotFather](https://t.me/botfather) on Telegram
+   - Copy the bot token
+   - Message your bot, then visit `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` to find your chat ID
+
+3. **Features**:
+   - Client-side validation
+   - Character limits (100 for name, 2000 for message)
+   - Loading states and error handling
+   - Success/error messages
+   - Fully accessible form with ARIA attributes
+
 ## Deployment
 
 This site is configured for deployment to Netlify:
@@ -141,6 +167,9 @@ This site is configured for deployment to Netlify:
 1. Connect your repository to Netlify
 2. Build command: `bun run build`
 3. Publish directory: `dist`
+4. **Environment Variables**: Add your Telegram credentials to Netlify:
+   - `TELEGRAM_BOT_TOKEN`
+   - `TELEGRAM_CHAT_ID`
 
 Netlify will automatically deploy on every push to the main branch.
 

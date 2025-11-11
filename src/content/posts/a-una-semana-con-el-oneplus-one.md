@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-10-28 22:31:58+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/10/28/a-una-semana-con-el-oneplus-one/
 slug: a-una-semana-con-el-oneplus-one
 title: A Una Semana con el OnePlus One

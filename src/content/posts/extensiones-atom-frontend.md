@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-09-25 14:40:52+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/09/25/top-extensiones-de-atom-para-front-end-development/
 slug: top-extensiones-de-atom-para-front-end-development
 title: Top Extensiones de Atom para Front-End Development

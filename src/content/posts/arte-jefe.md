@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-09-08 06:48:14+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/09/08/el-arte-de-ser-tu-propio-jefe/
 slug: el-arte-de-ser-tu-propio-jefe
 title: El arte de ser tu propio jefe

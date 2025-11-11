@@ -1,7 +1,6 @@
 ---
 title: Shopify JS Codesplit and Lazy-Loading with Webpack 4
 date: 2018-05-11
-layout: Post
 ---
 
 # Shopify JS Codesplit and Lazy-Loading with Webpack 4

@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-09-09 17:00:44+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/09/09/integrando-todoist-ifttt-y-slack-miideaes/
 slug: integrando-todoist-ifttt-y-slack-miideaes
 title: 'Integrando ToDoIst, IFTTT y Slack - #MiIdeaEs'

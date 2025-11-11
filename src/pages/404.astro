@@ -2,6 +2,8 @@
 import { getEntry } from 'astro:content';
 import PageError from '../layouts/PageError.astro';
 
+export const prerender = true;
+
 const errorPage = await getEntry('pages', '404');
 const { Content } = await errorPage.render();
 ---

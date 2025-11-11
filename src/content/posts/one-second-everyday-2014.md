@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-01-04 06:44:39+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/01/04/one-second-everyday-2014/
 slug: one-second-everyday-2014
 title: One Second Everyday 2014

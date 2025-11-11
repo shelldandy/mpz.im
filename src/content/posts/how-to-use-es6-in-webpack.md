@@ -1,7 +1,6 @@
 ---
 title: How to use ES6 on Webpack
 date: 2017-03-05
-layout: Post
 # hero: TBD
 ---
 
@@ -26,7 +25,7 @@ That will install babel-cli, babel-preset-env and babel-core now in your
 folder where you keep you `webpack.conf.js` or similar plop another
 `.babelrc` file. (Yeah, I know ANOTHER) and add the following:
 
-```.json
+```json
 {
   "presets": [
     ["env", {
@@ -44,7 +43,7 @@ upwards can understand modules kthanksbai.
 Now adjust your scripts inside your `package.json` as follows:
 
 
-```.json
+```json
 {
   "scripts": {
   "build": "babel-node node_modules/.bin/webpack"

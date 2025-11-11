@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-10-13 15:12:23+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/10/13/mi-nueva-aventura-con-android/
 slug: mi-nueva-aventura-con-android
 title: Mi nueva aventura con Android

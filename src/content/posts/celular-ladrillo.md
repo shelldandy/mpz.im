@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-03-02 16:15:33+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/03/02/converti-mi-celular-en-un-ladrillo-y-lo-regrese-a-la-vida/
 slug: converti-mi-celular-en-un-ladrillo-y-lo-regrese-a-la-vida
 title: Convertí mi celular en un ladrillo… y lo regresé a la vida

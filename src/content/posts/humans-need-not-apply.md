@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-10-07 12:33:22+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/10/07/humans-need-not-apply/
 slug: humans-need-not-apply
 title: Humans Need Not Apply

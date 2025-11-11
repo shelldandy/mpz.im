@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-09-14 03:06:55+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/09/14/iphone-5s-ahora/
 slug: iphone-5s-ahora
 title: El mejor momento para comprar un iPhone 5s es AHORA

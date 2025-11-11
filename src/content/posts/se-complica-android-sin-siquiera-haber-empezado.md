@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-10-17 15:01:32+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/10/17/se-complica-android-sin-siquiera-haber-empezado/
 slug: se-complica-android-sin-siquiera-haber-empezado
 title: Se complica Android sin siquiera haber empezado

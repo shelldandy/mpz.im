@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-09-28 12:23:15+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/09/28/herramientas-para-startups/
 slug: herramientas-para-startups
 title: Herramientas para Startups

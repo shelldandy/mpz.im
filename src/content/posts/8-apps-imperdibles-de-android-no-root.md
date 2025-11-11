@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-11-24 15:48:24+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/11/24/8-apps-imperdibles-de-android-no-root/
 slug: 8-apps-imperdibles-de-android-no-root
 title: 8 Apps Imperdibles de Android (No Root)

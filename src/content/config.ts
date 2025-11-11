@@ -5,7 +5,6 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    layout: z.string().default('Post'),
     hero: z.string().optional(),
     // Legacy WordPress fields (optional)
     author: z.string().optional(),
@@ -21,7 +20,6 @@ const pages = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string().optional(),
-    layout: z.string(),
     route: z.string().optional(),
     hero: z.string().optional(),
     cta: z.object({

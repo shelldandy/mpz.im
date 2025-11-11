@@ -1,7 +1,6 @@
 ---
 title: Cool cubic beziers
 date: 2017-04-01
-layout: Post
 # hero: TBD
 ---
 

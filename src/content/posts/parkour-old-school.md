@@ -1,7 +1,6 @@
 ---
 title: Parkour Old School
 date: 2014-08-25
-layout: Post
 hero: https://cldup.com/VqijN0upL3.jpg
 ---
 

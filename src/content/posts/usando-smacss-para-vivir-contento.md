@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2015-09-24 14:15:52+00:00
-layout: Post
 link: http://www.miguel.click/blog/2015/09/24/usando-smacss-para-vivir-contento/
 slug: usando-smacss-para-vivir-contento
 title: Usando SMACSS para Vivir Contento

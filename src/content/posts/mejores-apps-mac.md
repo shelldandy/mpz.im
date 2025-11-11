@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-10-02 01:08:14+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/10/02/las-mejores-apps-para-mac/
 slug: las-mejores-apps-para-mac
 title: Las mejores Apps para Mac

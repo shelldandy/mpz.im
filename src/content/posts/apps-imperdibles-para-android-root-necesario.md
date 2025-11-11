@@ -2,7 +2,6 @@
 author: mike3run
 comments: true
 date: 2014-11-25 21:54:47+00:00
-layout: Post
 link: http://www.miguel.click/blog/2014/11/25/apps-imperdibles-para-android-root-necesario/
 slug: apps-imperdibles-para-android-root-necesario
 title: Apps Imperdibles para Android [Root Necesario]
