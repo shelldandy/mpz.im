@@ -1,0 +1,41 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+interface Props {
+  title?: string;
+}
+
+const { title = '404 - Page Not Found' } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <Header client:load />
+
+  <main class="error-layout">
+    <div class="error-content">
+      <slot />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .error-layout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .error-content {
+    text-align: center;
+    line-height: 1.7;
+    color: #333;
+  }
+</style>

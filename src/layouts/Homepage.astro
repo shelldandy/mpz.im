@@ -1,0 +1,44 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Hero from '../components/Hero';
+
+interface Props {
+  title: string;
+  hero?: string;
+  cta?: {
+    label: string;
+    link: string;
+  };
+}
+
+const { title, hero, cta } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <Header client:load />
+
+  {hero && <Hero imageUrl={hero} title={title} cta={cta} />}
+
+  <main class="homepage-content">
+    <div class="prose">
+      <slot />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .homepage-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .prose {
+    line-height: 1.7;
+    color: #333;
+  }
+</style>

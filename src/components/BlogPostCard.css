@@ -1,0 +1,46 @@
+.blog-post-card {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1.5rem 0;
+  transition: transform 0.2s;
+}
+
+.blog-post-card:hover {
+  transform: translateX(4px);
+}
+
+.post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+  transition: color 0.2s;
+}
+
+.post-link:hover .post-title {
+  color: #4a5568;
+}
+
+.post-date {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.post-excerpt {
+  margin: 0.5rem 0 0 0;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 1.25rem;
+  }
+}

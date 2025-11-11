@@ -1,0 +1,33 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import BlogPostCard from '../../components/BlogPostCard';
+
+const postsPage = await getEntry('pages', 'posts');
+const { Content } = await postsPage.render();
+const { title, hero } = postsPage.data;
+
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Page title={title} hero={hero}>
+  <Content />
+
+  <div class="posts-list">
+    {sortedPosts.map((post) => (
+      <BlogPostCard
+        title={post.data.title}
+        date={post.data.date}
+        slug={post.slug}
+        client:load
+      />
+    ))}
+  </div>
+</Page>
+
+<style>
+  .posts-list {
+    margin-top: 2rem;
+  }
+</style>

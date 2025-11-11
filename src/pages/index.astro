@@ -1,0 +1,12 @@
+---
+import { getEntry } from 'astro:content';
+import Homepage from '../layouts/Homepage.astro';
+
+const homepage = await getEntry('pages', 'index');
+const { Content } = await homepage.render();
+const { title, hero, cta } = homepage.data;
+---
+
+<Homepage title={title || 'Miguel Palau'} hero={hero} cta={cta}>
+  <Content />
+</Homepage>
