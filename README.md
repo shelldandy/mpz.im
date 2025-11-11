@@ -4,10 +4,11 @@ Personal website and blog built with Astro, Preact, and TypeScript.
 
 ## Tech Stack
 
-- **Framework**: [Astro](https://astro.build/) - Modern static site generator
+- **Framework**: [Astro](https://astro.build/) - Static site generator
 - **UI Library**: [Preact](https://preactjs.com/) - Lightweight React alternative
 - **Language**: TypeScript
 - **Content**: Markdown with frontmatter
+- **Backend**: Netlify Functions - Serverless functions for contact form
 - **Deployment**: Netlify
 
 ## Project Structure
@@ -36,13 +37,14 @@ Personal website and blog built with Astro, Preact, and TypeScript.
 │   │   ├── index.astro
 │   │   ├── contact.astro
 │   │   ├── 404.astro
-│   │   ├── api/
-│   │   │   └── contact.ts       # Telegram API endpoint
 │   │   └── posts/
 │   │       ├── [...page].astro  # Paginated posts list
 │   │       └── [slug].astro     # Individual blog posts
 │   └── styles/           # Global styles
 │       └── global.css
+├── netlify/
+│   └── functions/        # Netlify serverless functions
+│       └── contact.ts    # Contact form handler (Telegram integration)
 ├── public/               # Static assets
 ├── astro.config.mjs      # Astro configuration
 ├── netlify.toml          # Netlify deployment config
@@ -140,25 +142,34 @@ The pagination component shows:
 
 ### Contact Form with Telegram Integration
 
-The contact page includes a form that sends messages to your Telegram via the Bot API:
+The contact page uses a **Netlify Function** to send form submissions to Telegram via the Bot API. The site is fully static with serverless backend for the contact form.
 
-1. **Setup**: Copy `.env.example` to `.env` and configure:
-   ```bash
-   TELEGRAM_BOT_TOKEN=your_bot_token_from_botfather
-   TELEGRAM_CHAT_ID=your_telegram_chat_id
-   ```
+**Architecture:**
+- Static site generated with Astro
+- Contact form (Preact component) on `/contact`
+- Netlify Function at `/.netlify/functions/contact` handles submissions
+- Function sends message to Telegram Bot API
 
-2. **Getting Telegram Credentials**:
+**Setup:**
+
+1. **Get Telegram Credentials**:
    - Create a bot with [@BotFather](https://t.me/botfather) on Telegram
    - Copy the bot token
    - Message your bot, then visit `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` to find your chat ID
 
-3. **Features**:
-   - Client-side validation
-   - Character limits (100 for name, 2000 for message)
-   - Loading states and error handling
-   - Success/error messages
-   - Fully accessible form with ARIA attributes
+2. **Configure Environment Variables**:
+   - For local development: Create `.env` file (see `.env.example`)
+   - For production: Add to Netlify Dashboard → Site settings → Environment variables
+     - `TELEGRAM_BOT_TOKEN`
+     - `TELEGRAM_CHAT_ID`
+
+**Features:**
+- Client-side validation
+- Character limits (100 for name, 2000 for message)
+- Loading states and error handling
+- Success/error messages
+- Fully accessible form with ARIA attributes
+- Serverless architecture (no server needed)
 
 ## Deployment
 

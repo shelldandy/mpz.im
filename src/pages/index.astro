@@ -2,8 +2,6 @@
 import { getEntry } from 'astro:content';
 import Homepage from '../layouts/Homepage.astro';
 
-export const prerender = true;
-
 const homepage = await getEntry('pages', 'index');
 const { Content } = await homepage.render();
 const { title, hero, cta } = homepage.data;

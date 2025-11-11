@@ -3,7 +3,6 @@ import { getEntry } from 'astro:content';
 import Page from '../layouts/Page.astro';
 import ContactForm from '../components/ContactForm';
 
-export const prerender = true;
 
 const contactPage = await getEntry('pages', 'contact');
 const { Content } = await contactPage.render();
