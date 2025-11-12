@@ -1,7 +1,8 @@
 .site-footer {
-  border-top: 1px solid #e5e5e5;
-  background: #f9fafb;
+  border-top: 6px solid var(--border);
+  background: var(--bg-secondary);
   margin-top: 4rem;
+  box-shadow: 0 -6px 0 var(--shadow);
 }
 
 .footer-container {
@@ -13,12 +14,19 @@
 
 .footer-container p {
   margin: 0;
-  color: #6b7280;
-  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 @media (max-width: 768px) {
   .footer-container {
     padding: 1.5rem 1rem;
+  }
+
+  .footer-container p {
+    font-size: 0.9rem;
   }
 }
