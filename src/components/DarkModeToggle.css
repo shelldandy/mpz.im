@@ -10,6 +10,7 @@
   font-weight: 900;
   box-shadow: 4px 4px 0 var(--shadow);
   position: relative;
+  line-height: 1;
 }
 
 .dark-mode-toggle:hover {
