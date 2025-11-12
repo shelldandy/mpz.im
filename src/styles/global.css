@@ -9,6 +9,7 @@
   --code-bg: #ebdbb2;
   --code-text: #3c3836;
   --shadow: rgba(60, 56, 54, 0.3);
+  --overlay: rgba(60, 56, 54, 0.7);
   --yellow: #d79921;
   --orange: #d65d0e;
   --green: #98971a;
@@ -27,6 +28,7 @@
   --code-bg: #3c3836;
   --code-text: #ebdbb2;
   --shadow: rgba(235, 219, 178, 0.3);
+  --overlay: rgba(40, 40, 40, 0.7);
   --yellow: #fabd2f;
   --orange: #fe8019;
   --green: #b8bb26;
