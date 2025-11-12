@@ -8,5 +8,122 @@ const { title } = resumePage.data;
 ---
 
 <Page title={title}>
-  <Content />
+  <div class="resume-content">
+    <Content />
+  </div>
 </Page>
+
+<style>
+  .resume-content {
+    color: var(--text-primary);
+  }
+
+  .resume-content :global(a) {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .resume-content :global(a:hover) {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-bottom: 3px solid var(--border);
+  }
+
+  .resume-content :global(h2) {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 6px solid var(--border);
+    background: var(--bg-secondary);
+    box-shadow: 8px 8px 0 var(--shadow);
+    color: var(--text-primary);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .resume-content :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 5px solid var(--border);
+    background: var(--bg-secondary);
+    box-shadow: 6px 6px 0 var(--shadow);
+    color: var(--text-primary);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .resume-content :global(h3 a) {
+    color: var(--accent);
+    border: none;
+    text-decoration: none;
+  }
+
+  .resume-content :global(h3 a:hover) {
+    background: transparent;
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .resume-content :global(strong) {
+    color: var(--text-primary);
+    font-weight: 900;
+  }
+
+  .resume-content :global(em) {
+    color: var(--text-secondary);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .resume-content :global(hr) {
+    border: none;
+    border-top: 5px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  .resume-content :global(ul) {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .resume-content :global(li) {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+  }
+
+  .resume-content :global(li::before) {
+    content: "▸";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--accent);
+    font-weight: 900;
+    font-size: 1.2em;
+  }
+
+  .resume-content :global(p:first-of-type a) {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: 4px solid var(--border);
+    border-bottom: 4px solid var(--border);
+    text-transform: uppercase;
+    font-weight: 900;
+    box-shadow: 6px 6px 0 var(--shadow);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+
+  .resume-content :global(p:first-of-type a:hover) {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--shadow);
+    background: var(--bg-secondary);
+    color: var(--accent);
+  }
+</style>
