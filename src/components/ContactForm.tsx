@@ -4,6 +4,7 @@ import './ContactForm.css';
 
 const ContactForm: FunctionalComponent = () => {
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{
@@ -17,10 +18,21 @@ const ContactForm: FunctionalComponent = () => {
     setStatus({ type: null, message: '' });
 
     // Client-side validation
-    if (!name.trim() || !message.trim()) {
+    if (!name.trim() || !email.trim() || !message.trim()) {
       setStatus({
         type: 'error',
         message: 'Please fill in all fields.',
+      });
+      setLoading(false);
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus({
+        type: 'error',
+        message: 'Please enter a valid email address.',
       });
       setLoading(false);
       return;
@@ -34,6 +46,7 @@ const ContactForm: FunctionalComponent = () => {
         },
         body: JSON.stringify({
           name: name.trim(),
+          email: email.trim(),
           message: message.trim(),
         }),
       });
@@ -46,6 +59,7 @@ const ContactForm: FunctionalComponent = () => {
           message: data.message || 'Thank you! Your message has been sent.',
         });
         setName('');
+        setEmail('');
         setMessage('');
       } else {
         setStatus({
@@ -76,6 +90,24 @@ const ContactForm: FunctionalComponent = () => {
           class="form-input"
           value={name}
           onInput={(e) => setName((e.target as HTMLInputElement).value)}
+          maxLength={100}
+          required
+          disabled={loading}
+          aria-required="true"
+        />
+      </div>
+
+      <div class="form-group">
+        <label htmlFor="email" class="form-label">
+          Email <span class="required">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-input"
+          value={email}
+          onInput={(e) => setEmail((e.target as HTMLInputElement).value)}
           maxLength={100}
           required
           disabled={loading}
@@ -116,7 +148,7 @@ const ContactForm: FunctionalComponent = () => {
       <button
         type="submit"
         class="form-submit"
-        disabled={loading || !name.trim() || !message.trim()}
+        disabled={loading || !name.trim() || !email.trim() || !message.trim()}
       >
         {loading ? 'Sending...' : 'Send Message'}
       </button>

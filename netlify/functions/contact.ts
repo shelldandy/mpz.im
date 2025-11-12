@@ -2,6 +2,7 @@ import type { Handler, HandlerEvent, HandlerContext } from '@netlify/functions';
 
 interface ContactFormData {
   name: string;
+  email: string;
   message: string;
 }
 
@@ -19,10 +20,19 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     const data: ContactFormData = JSON.parse(event.body || '{}');
 
     // Validate input
-    if (!data.name || !data.message) {
+    if (!data.name || !data.email || !data.message) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Name and message are required' }),
+        body: JSON.stringify({ error: 'Name, email, and message are required' }),
+      };
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Invalid email address' }),
       };
     }
 
@@ -30,6 +40,13 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'Name is too long (max 100 characters)' }),
+      };
+    }
+
+    if (data.email.length > 100) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Email is too long (max 100 characters)' }),
       };
     }
 
@@ -60,6 +77,7 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
 🔔 New Contact Form Submission
 
 👤 Name: ${data.name}
+📧 Email: ${data.email}
 
 💬 Message:
 ${data.message}
