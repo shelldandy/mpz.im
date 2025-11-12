@@ -1,5 +1,5 @@
-import type { FunctionalComponent } from 'preact';
-import './Header.css';
+import type { FunctionalComponent } from "preact";
+import "./Header.css";
 
 const Header: FunctionalComponent = () => {
   return (
@@ -11,6 +11,9 @@ const Header: FunctionalComponent = () => {
         <ul class="nav-links">
           <li>
             <a href="/posts">Posts</a>
+          </li>
+          <li>
+            <a href="/resume">Resume</a>
           </li>
           <li>
             <a href="/contact">Contact</a>
