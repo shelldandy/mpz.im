@@ -19,6 +19,12 @@ const pageTitle = title === 'Miguel Palau' ? title : `${title} | Miguel Palau`;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <script is:inline>
+      // Prevent FOUC by setting theme before page renders
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
   <body>
     <slot />

@@ -6,6 +6,9 @@ const DarkModeToggle: FunctionalComponent = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    // SSR compatibility check
+    if (typeof window === 'undefined') return;
+
     // Check localStorage and system preference on mount
     const stored = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

@@ -75,7 +75,7 @@
 
 .form-status-success {
   background: var(--green);
-  color: var(--bg-primary);
+  color: var(--status-success-text);
   border-color: var(--border);
 }
 

@@ -27,7 +27,7 @@
 
 .hero-content {
   text-align: center;
-  color: var(--text-primary);
+  color: var(--hero-text);
   padding: 2rem;
 }
 
