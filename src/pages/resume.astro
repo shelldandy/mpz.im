@@ -1,0 +1,12 @@
+---
+import { getEntry } from 'astro:content';
+import Page from '../layouts/Page.astro';
+
+const resumePage = await getEntry('pages', 'resume');
+const { Content } = await resumePage.render();
+const { title } = resumePage.data;
+---
+
+<Page title={title}>
+  <Content />
+</Page>
