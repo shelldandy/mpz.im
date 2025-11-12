@@ -1,4 +1,4 @@
-import { FunctionalComponent } from 'preact';
+import type { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import './DarkModeToggle.css';
 
@@ -27,7 +27,7 @@ const DarkModeToggle: FunctionalComponent = () => {
     <button
       class="dark-mode-toggle"
       onClick={toggleTheme}
-      aria-label="Toggle dark mode"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       type="button"
     >
       {isDark ? '☀' : '☾'}
