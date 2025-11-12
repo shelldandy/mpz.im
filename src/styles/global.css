@@ -1,26 +1,38 @@
-/* CSS Variables for theming */
+/* CSS Variables for theming - Gruvbox colors */
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f5f5;
-  --text-primary: #000000;
-  --text-secondary: #333333;
-  --accent: #ff0000;
-  --border: #000000;
-  --code-bg: #f0f0f0;
-  --code-text: #000000;
-  --shadow: rgba(0, 0, 0, 0.3);
+  --bg-primary: #fbf1c7;
+  --bg-secondary: #ebdbb2;
+  --text-primary: #3c3836;
+  --text-secondary: #504945;
+  --accent: #cc241d;
+  --border: #3c3836;
+  --code-bg: #ebdbb2;
+  --code-text: #3c3836;
+  --shadow: rgba(60, 56, 54, 0.3);
+  --yellow: #d79921;
+  --orange: #d65d0e;
+  --green: #98971a;
+  --aqua: #689d6a;
+  --blue: #458588;
+  --purple: #b16286;
 }
 
 [data-theme='dark'] {
-  --bg-primary: #000000;
-  --bg-secondary: #1a1a1a;
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --accent: #ff3333;
-  --border: #ffffff;
-  --code-bg: #1a1a1a;
-  --code-text: #ffffff;
-  --shadow: rgba(255, 255, 255, 0.3);
+  --bg-primary: #282828;
+  --bg-secondary: #3c3836;
+  --text-primary: #ebdbb2;
+  --text-secondary: #d5c4a1;
+  --accent: #fb4934;
+  --border: #ebdbb2;
+  --code-bg: #3c3836;
+  --code-text: #ebdbb2;
+  --shadow: rgba(235, 219, 178, 0.3);
+  --yellow: #fabd2f;
+  --orange: #fe8019;
+  --green: #b8bb26;
+  --aqua: #8ec07c;
+  --blue: #83a598;
+  --purple: #d3869b;
 }
 
 /* Reset and base styles */

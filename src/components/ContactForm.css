@@ -74,9 +74,9 @@
 }
 
 .form-status-success {
-  background: #00ff00;
-  color: #000000;
-  border-color: #000000;
+  background: var(--green);
+  color: var(--bg-primary);
+  border-color: var(--border);
 }
 
 .form-status-error {
