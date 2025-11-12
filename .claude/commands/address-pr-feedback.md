@@ -94,18 +94,34 @@ For each review thread that HAS been addressed in the recent commits:
 - Confirm it matches what the reviewer requested
 - Ensure it aligns with the specs
 
-### b. Comment on the thread
+### b. Post a general review comment (RECOMMENDED)
 
-Reply to the first comment in the thread using REST API:
+The most reliable way to document resolutions is to post a single general review comment summarizing all fixes:
 
 ```bash
-gh api --method POST repos/{owner}/{repo}/pulls/comments/{comment_id}/replies \
-  -f body="✅ Addressed in commit <hash>: <brief explanation of what was changed>"
+gh pr review <pr_number> --comment --body "## ✅ Review Feedback Addressed
+
+All review comments have been addressed in commit <hash>:
+
+### 1. [File:Line] Issue Title
+Fixed: <brief explanation>
+
+### 2. [File:Line] Issue Title
+Enhanced: <brief explanation>
+
+All changes align with specifications."
 ```
 
-### c. Resolve the thread using GraphQL
+**Why this approach works better:**
 
-Use the `resolveReviewThread` mutation:
+- Single comment documenting all resolutions
+- No issues with comment ID formats or REST API endpoints
+- Provides clear documentation of what was addressed
+- Easier to review at a glance
+
+### c. Resolve threads using GraphQL
+
+After posting the review comment, resolve each thread individually using the `resolveReviewThread` mutation:
 
 ```bash
 gh api graphql -f query='
@@ -119,6 +135,8 @@ mutation($threadId: ID!) {
 }
 ' -F threadId=<thread_id>
 ```
+
+**Important:** Use the thread ID from the GraphQL query (format: `PRRT_xxxxx`), not the comment ID.
 
 ### d. Track resolution
 
@@ -207,9 +225,18 @@ All review comments have been addressed and resolved! ✅
 
 ## Technical Notes
 
-- Review thread IDs from GraphQL are different from comment IDs from REST API
-- You need the thread ID (from GraphQL query) to resolve, but the comment ID (from the thread's first comment) to reply
-- The GraphQL `id` field is a global ID that can be used with the mutation
-- Always check `isResolved` before attempting to resolve a thread
+### Thread Resolution API Details
+
+- **Thread IDs vs Comment IDs:** Review thread IDs from GraphQL are different from comment IDs
+  - Thread ID format: `PRRT_xxxxx` (used for resolving threads)
+  - Comment ID format: `PRRC_xxxxx` (individual comments within a thread)
+- **GraphQL mutation is the only reliable way to resolve threads:** The REST API endpoint for replying to individual comments (`repos/{owner}/{repo}/pulls/comments/{comment_id}/replies`) may not work consistently
+- **Recommended workflow:**
+  1. Fetch threads via GraphQL query (get thread IDs and resolution status)
+  2. Verify fixes by reading the actual files
+  3. Post a single general review comment via `gh pr review` summarizing all fixes
+  4. Resolve each thread individually via GraphQL mutation using thread IDs
+- **Always check `isResolved` before attempting to resolve:** Don't try to resolve already-resolved threads
+- **Error handling:** If thread resolution fails, ensure at minimum the review comment was posted successfully
 
 Start by acknowledging the command parameters and then proceed systematically through each step.

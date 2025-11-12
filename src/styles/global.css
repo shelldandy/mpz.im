@@ -20,7 +20,7 @@
   --hero-text: #ffffff;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --bg-primary: #282828;
   --bg-secondary: #3c3836;
   --text-primary: #ebdbb2;
@@ -59,14 +59,16 @@ html {
 }
 
 body {
-  font-family: 'Courier New', 'Courier', monospace;
+  font-family: "Courier New", "Courier", monospace;
   font-size: 18px;
   line-height: 1.5;
   color: var(--text-primary);
   background: var(--bg-primary);
   min-height: 100vh;
   font-weight: 700;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Typography - Brutalist style */
@@ -195,7 +197,7 @@ a:hover {
   color: var(--accent);
   padding: 0.3rem 0.6rem;
   font-size: 0.95em;
-  font-family: 'Courier New', 'Courier', monospace;
+  font-family: "Courier New", "Courier", monospace;
   border: 2px solid var(--border);
   font-weight: 700;
 }
