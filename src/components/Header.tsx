@@ -1,4 +1,5 @@
 import type { FunctionalComponent } from 'preact';
+import DarkModeToggle from './DarkModeToggle';
 import './Header.css';
 
 const Header: FunctionalComponent = () => {
@@ -8,14 +9,17 @@ const Header: FunctionalComponent = () => {
         <a href="/" class="logo">
           Miguel Palau
         </a>
-        <ul class="nav-links">
-          <li>
-            <a href="/posts">Posts</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li>
+              <a href="/posts">Posts</a>
+            </li>
+            <li>
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+          <DarkModeToggle />
+        </div>
       </nav>
     </header>
   );
