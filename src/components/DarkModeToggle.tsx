@@ -1,4 +1,4 @@
-import { FunctionalComponent } from 'preact';
+import type { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import './DarkModeToggle.css';
 
