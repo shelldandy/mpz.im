@@ -1,9 +1,11 @@
 .site-header {
-  border-bottom: 1px solid #e5e5e5;
-  background: #fff;
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  box-shadow: 0 1px 4px var(--color-shadow);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background-color 0.3s ease;
 }
 
 .nav-container {
@@ -18,13 +20,15 @@
 .logo {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--color-text-primary);
   text-decoration: none;
   transition: color 0.2s;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
 }
 
 .logo:hover {
-  color: #4a5568;
+  color: var(--color-accent);
+  text-decoration: none;
 }
 
 .nav-links {
@@ -33,17 +37,38 @@
   padding: 0;
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 .nav-links a {
-  color: #4a5568;
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .nav-links a:hover {
-  color: #1a1a1a;
+  color: var(--color-accent);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+}
+
+.theme-toggle:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-accent);
 }
 
 @media (max-width: 768px) {

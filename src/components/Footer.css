@@ -1,7 +1,8 @@
 .site-footer {
-  border-top: 1px solid #e5e5e5;
-  background: #f9fafb;
+  border-top: 2px solid var(--color-border);
+  background: var(--color-bg-secondary);
   margin-top: 4rem;
+  box-shadow: 0 -1px 4px var(--color-shadow);
 }
 
 .footer-container {
@@ -13,8 +14,9 @@
 
 .footer-container p {
   margin: 0;
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
