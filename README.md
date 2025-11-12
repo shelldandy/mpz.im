@@ -13,7 +13,7 @@ Personal website and blog built with Astro, Preact, and TypeScript.
 
 ## Project Structure
 
-```
+```sh
 /
 ├── src/
 │   ├── components/       # Preact components
@@ -103,9 +103,8 @@ bun run preview
 title: Your Post Title
 date: 2025-01-01
 layout: Post
-hero: https://example.com/image.jpg  # Optional
+hero: https://example.com/image.jpg # Optional
 ---
-
 Your content here...
 ```
 
@@ -118,9 +117,8 @@ Your content here...
 ---
 title: Page Title
 layout: Page
-hero: https://example.com/image.jpg  # Optional
+hero: https://example.com/image.jpg # Optional
 ---
-
 Your content here...
 ```
 
@@ -135,6 +133,7 @@ return paginate(sortedPosts, { pageSize: 10 }); // Change 10 to your desired num
 ```
 
 The pagination component shows:
+
 - Current page and total pages
 - Previous/Next navigation
 - Numbered page links with ellipsis for large page counts
@@ -145,6 +144,7 @@ The pagination component shows:
 The contact page uses a **Netlify Function** to send form submissions to Telegram via the Bot API. The site is fully static with serverless backend for the contact form.
 
 **Architecture:**
+
 - Static site generated with Astro
 - Contact form (Preact component) on `/contact`
 - Netlify Function at `/.netlify/functions/contact` handles submissions
@@ -164,6 +164,7 @@ The contact page uses a **Netlify Function** to send form submissions to Telegra
      - `TELEGRAM_CHAT_ID`
 
 **Features:**
+
 - Client-side validation
 - Character limits (100 for name, 2000 for message)
 - Loading states and error handling
@@ -188,13 +189,13 @@ Netlify will automatically deploy on every push to the main branch.
 
 All commands are run from the root of the project:
 
-| Command              | Action                                       |
-|----------------------|----------------------------------------------|
-| `bun install`        | Install dependencies                          |
-| `bun run dev`        | Start dev server at `localhost:4321`         |
-| `bun run build`      | Build production site to `./dist/`           |
-| `bun run preview`    | Preview build locally before deploying       |
-| `bun run astro ...`  | Run Astro CLI commands                       |
+| Command             | Action                                 |
+| ------------------- | -------------------------------------- |
+| `bun install`       | Install dependencies                   |
+| `bun run dev`       | Start dev server at `localhost:4321`   |
+| `bun run build`     | Build production site to `./dist/`     |
+| `bun run preview`   | Preview build locally before deploying |
+| `bun run astro ...` | Run Astro CLI commands                 |
 
 ## License
 
