@@ -38,6 +38,7 @@
   text-shadow: 4px 4px 0 var(--shadow);
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .hero-cta {
