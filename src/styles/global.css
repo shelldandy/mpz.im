@@ -1,70 +1,77 @@
-/* CSS Custom Properties for Theming */
+/* CSS Custom Properties for Theming - Ristretto Color Scheme */
 :root {
-  /* Light mode colors - Enterprise palette */
-  --color-primary: #1e3a8a;
-  --color-primary-hover: #1e40af;
-  --color-secondary: #3b82f6;
-  --color-accent: #2563eb;
+  /* Ristretto base colors */
+  --ristretto-root-beer: #1F0E04;      /* Darkest brown */
+  --ristretto-black-bean: #431307;     /* Dark reddish brown */
+  --ristretto-citrine-brown: #932C0D;  /* Medium brown */
+  --ristretto-pale-orange: #FCE4BE;    /* Cream/beige */
+  --ristretto-cadmium-orange: #ED7B35; /* Warm orange */
 
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
-  --color-surface-elevated: #ffffff;
+  /* Light mode colors - Ristretto palette */
+  --color-primary: #932C0D;
+  --color-primary-hover: #7a2409;
+  --color-secondary: #ED7B35;
+  --color-accent: #ED7B35;
 
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-tertiary: #64748b;
+  --color-background: #FFFBF5;
+  --color-surface: #FCE4BE;
+  --color-surface-elevated: #FFFBF5;
 
-  --color-border: #e2e8f0;
-  --color-border-light: #f1f5f9;
+  --color-text-primary: #1F0E04;
+  --color-text-secondary: #431307;
+  --color-text-tertiary: #6B3A1E;
 
-  --color-link: #2563eb;
-  --color-link-hover: #1d4ed8;
+  --color-border: #E6C89F;
+  --color-border-light: #F5DDB8;
 
-  --color-code-bg: #f1f5f9;
-  --color-code-text: #dc2626;
-  --color-code-block-bg: #1e293b;
-  --color-code-block-text: #e2e8f0;
+  --color-link: #932C0D;
+  --color-link-hover: #ED7B35;
+
+  --color-code-bg: #FCE4BE;
+  --color-code-text: #932C0D;
+  --color-code-block-bg: #431307;
+  --color-code-block-text: #FCE4BE;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px 0 rgba(31, 14, 4, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(31, 14, 4, 0.12), 0 2px 4px -1px rgba(31, 14, 4, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(31, 14, 4, 0.15), 0 4px 6px -2px rgba(31, 14, 4, 0.08);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-base: 200ms ease-in-out;
 }
 
-/* Dark mode colors */
+/* Dark mode colors - Ristretto palette */
 [data-theme="dark"] {
-  --color-primary: #60a5fa;
-  --color-primary-hover: #3b82f6;
-  --color-secondary: #3b82f6;
-  --color-accent: #2563eb;
+  --color-primary: #ED7B35;
+  --color-primary-hover: #F59A5F;
+  --color-secondary: #ED7B35;
+  --color-accent: #FCE4BE;
 
-  --color-background: #0f172a;
-  --color-surface: #1e293b;
-  --color-surface-elevated: #334155;
+  --color-background: #1F0E04;
+  --color-surface: #431307;
+  --color-surface-elevated: #5A1A09;
 
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #cbd5e1;
-  --color-text-tertiary: #94a3b8;
+  --color-text-primary: #FCE4BE;
+  --color-text-secondary: #E6C89F;
+  --color-text-tertiary: #C8A477;
 
-  --color-border: #334155;
-  --color-border-light: #1e293b;
+  --color-border: #6B3A1E;
+  --color-border-light: #431307;
 
-  --color-link: #60a5fa;
-  --color-link-hover: #93c5fd;
+  --color-link: #ED7B35;
+  --color-link-hover: #F59A5F;
 
-  --color-code-bg: #334155;
-  --color-code-text: #fca5a5;
-  --color-code-block-bg: #0f172a;
-  --color-code-block-text: #e2e8f0;
+  --color-code-bg: #5A1A09;
+  --color-code-text: #F59A5F;
+  --color-code-block-bg: #1F0E04;
+  --color-code-block-text: #FCE4BE;
 
   /* Shadows in dark mode */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 }
 
 /* Reset and base styles */
