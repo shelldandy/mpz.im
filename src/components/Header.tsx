@@ -1,4 +1,5 @@
 import type { FunctionalComponent } from 'preact';
+import ThemeToggle from './ThemeToggle';
 import './Header.css';
 
 const Header: FunctionalComponent = () => {
@@ -14,6 +15,9 @@ const Header: FunctionalComponent = () => {
           </li>
           <li>
             <a href="/contact">Contact</a>
+          </li>
+          <li>
+            <ThemeToggle />
           </li>
         </ul>
       </nav>
