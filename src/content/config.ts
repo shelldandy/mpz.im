@@ -6,6 +6,9 @@ const posts = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     hero: z.string().optional(),
+    // Excerpt configuration
+    excerpt: z.string().optional(),
+    excerptLength: z.number().optional().default(200),
     // Legacy WordPress fields (optional)
     author: z.string().optional(),
     comments: z.boolean().optional(),

@@ -5,6 +5,28 @@ import Page from '../../layouts/Page.astro';
 import BlogPostCard from '../../components/BlogPostCard';
 import Pagination from '../../components/Pagination';
 
+// Helper function to generate excerpt from post body
+function generateExcerpt(body: string, length: number): string {
+  // Strip markdown and HTML
+  const cleanText = body
+    .replace(/^---[\s\S]*?---/, '') // Remove frontmatter
+    .replace(/#{1,6}\s/g, '') // Remove markdown headers
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Convert links to text
+    .replace(/[*_~`]/g, '') // Remove markdown formatting
+    .replace(/<[^>]+>/g, '') // Remove HTML tags
+    .replace(/\n{2,}/g, ' ') // Replace multiple newlines with space
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim();
+
+  // Truncate to length
+  if (cleanText.length <= length) {
+    return cleanText;
+  }
+
+  const truncated = cleanText.substring(0, length);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return lastSpace > 0 ? truncated.substring(0, lastSpace) + '...' : truncated + '...';
+}
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection('posts');
@@ -24,14 +46,18 @@ const { page } = Astro.props;
   <Content />
 
   <div class="posts-list">
-    {page.data.map((post) => (
-      <BlogPostCard
-        title={post.data.title}
-        date={post.data.date}
-        slug={post.slug}
-        client:load
-      />
-    ))}
+    {page.data.map((post) => {
+      const excerpt = post.data.excerpt || generateExcerpt(post.body, post.data.excerptLength || 200);
+      return (
+        <BlogPostCard
+          title={post.data.title}
+          date={post.data.date}
+          slug={post.slug}
+          excerpt={excerpt}
+          client:load
+        />
+      );
+    })}
   </div>
 
   <Pagination page={page} client:load />
