@@ -6,6 +6,8 @@ const posts = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     hero: z.string().optional(),
+    description: z.string().optional(),
+    ogImage: z.string().optional(),
     // Legacy WordPress fields (optional)
     author: z.string().optional(),
     comments: z.boolean().optional(),
@@ -22,6 +24,8 @@ const pages = defineCollection({
     title: z.string().optional(),
     route: z.string().optional(),
     hero: z.string().optional(),
+    description: z.string().optional(),
+    ogImage: z.string().optional(),
     cta: z.object({
       label: z.string(),
       link: z.string(),

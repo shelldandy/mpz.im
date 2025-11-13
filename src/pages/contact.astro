@@ -6,10 +6,15 @@ import ContactForm from '../components/ContactForm';
 
 const contactPage = await getEntry('pages', 'contact');
 const { Content } = await contactPage.render();
-const { title } = contactPage.data;
+const { title, description, ogImage, hero } = contactPage.data;
 ---
 
-<Page title={title}>
+<Page
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  hero={hero}
+>
   <Content />
   <ContactForm client:load />
 </Page>

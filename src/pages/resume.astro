@@ -4,10 +4,15 @@ import Page from '../layouts/Page.astro';
 
 const resumePage = await getEntry('pages', 'resume');
 const { Content } = await resumePage.render();
-const { title } = resumePage.data;
+const { title, description, ogImage, hero } = resumePage.data;
 ---
 
-<Page title={title}>
+<Page
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  hero={hero}
+>
   <div class="resume-content">
     <Content />
   </div>
