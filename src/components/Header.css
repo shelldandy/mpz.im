@@ -98,9 +98,9 @@
   top: 6px;
 }
 
-.hamburger-menu:hover .hamburger-icon,
-.hamburger-menu:hover .hamburger-icon::before,
-.hamburger-menu:hover .hamburger-icon::after {
+.hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open),
+.hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open)::before,
+.hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open)::after {
   background: var(--bg-primary);
 }
 
