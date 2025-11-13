@@ -1,8 +1,15 @@
 import type { FunctionalComponent } from 'preact';
+import { useState } from 'preact/hooks';
 import DarkModeToggle from './DarkModeToggle';
 import './Header.css';
 
 const Header: FunctionalComponent = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header class="site-header">
       <nav class="nav-container">
@@ -10,18 +17,29 @@ const Header: FunctionalComponent = () => {
           Miguel Palau
         </a>
         <div class="nav-right">
-          <ul class="nav-links">
+          <ul class={`nav-links ${isMenuOpen ? 'nav-links-open' : ''}`}>
             <li>
-              <a href="/posts">Posts</a>
+              <a href="/posts" onClick={() => setIsMenuOpen(false)}>Posts</a>
             </li>
             <li>
-              <a href="/resume">Resume</a>
+              <a href="/resume" onClick={() => setIsMenuOpen(false)}>Resume</a>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <a href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
             </li>
           </ul>
-          <DarkModeToggle />
+          <div class="nav-controls">
+            <button
+              class="hamburger-menu"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+              type="button"
+            >
+              <span class={`hamburger-icon ${isMenuOpen ? 'hamburger-icon-open' : ''}`}></span>
+            </button>
+            <DarkModeToggle />
+          </div>
         </div>
       </nav>
     </header>
