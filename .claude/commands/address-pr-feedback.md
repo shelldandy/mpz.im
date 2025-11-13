@@ -1,5 +1,5 @@
 ---
-description: Address PR review feedback by comparing specs against recent commits and resolving review comments
+description: Address PR review feedback by comparing specs against codebase and resolving review comments
 ---
 
 You are tasked with addressing PR review feedback systematically. Follow these steps:
@@ -9,13 +9,12 @@ You are tasked with addressing PR review feedback systematically. Follow these s
 Accept the following parameters from the command invocation:
 
 - `--spec <file>` or `-s <file>`: Path to specs file (relative to specs.local/ or absolute). If not provided, use the most recent .md file in specs.local/
-- `--commits <number>` or `-c <number>`: Number of recent commits to analyze (default: 1)
 
 Example usage:
 
 - `/address-pr-feedback` (uses defaults)
-- `/address-pr-feedback --spec dark-mode-specs.md --commits 3`
-- `/address-pr-feedback -s brutal-styling.md -c 2`
+- `/address-pr-feedback --spec dark-mode-specs.md`
+- `/address-pr-feedback -s brutal-styling.md`
 
 ## 2. Load Specifications
 
@@ -23,13 +22,7 @@ Example usage:
 - If no spec file is provided, find the most recently modified .md file in specs.local/ and use that
 - Display which spec file you're using for reference
 
-## 3. Analyze Recent Commits
-
-- Use `git log -<number> --oneline` to show the commits being analyzed
-- Use `git diff HEAD~<number>..HEAD` to see all changes in the specified commit range
-- Summarize the key changes made
-
-## 4. Fetch PR Review Comments via GraphQL
+## 3. Fetch PR Review Comments via GraphQL
 
 Use GitHub's GraphQL API to get review threads with their resolution status:
 
@@ -74,19 +67,19 @@ Extract and parse:
 - Current resolution status
 - Filter to only unresolved threads
 
-## 5. Compare Against Specifications
+## 4. Compare Against Specifications
 
 - Cross-reference the specs file with:
   - The PR review comments
-  - The actual implementation in the recent commits
+  - The actual implementation in the codebase
 - Identify which comments have been addressed by:
   - Checking if the file/line mentioned has been modified in the commit range
   - Verifying the change aligns with both the comment and the specs
   - Reading the current state of commented code
 
-## 6. Resolve Addressed Comments
+## 5. Resolve Addressed Comments
 
-For each review thread that HAS been addressed in the recent commits:
+For each review thread that HAS been addressed in the current codebase:
 
 ### a. Verify the fix
 
@@ -128,7 +121,7 @@ Keep count of:
 - Threads resolved
 - Any errors encountered
 
-## 7. Identify Unaddressed Comments
+## 6. Identify Unaddressed Comments
 
 After going through all comments:
 
@@ -139,7 +132,7 @@ After going through all comments:
   - The implementation differs from what was requested
   - Additional work is needed
 
-## 8. Handle Outstanding Comments
+## 7. Handle Outstanding Comments
 
 **If there are unaddressed comments remaining:**
 
@@ -151,7 +144,7 @@ This will create a comprehensive plan to address the remaining feedback.
 
 Celebrate! All feedback has been incorporated. 🎉
 
-## 9. Summary Report
+## 8. Summary Report
 
 Provide a clear summary:
 
@@ -162,10 +155,6 @@ Provide a clear summary:
 
 - File: specs.local/<filename>
 - Last modified: <timestamp>
-
-### Commits Analyzed
-
-<commit range with messages>
 
 ### Review Comments Status
 
