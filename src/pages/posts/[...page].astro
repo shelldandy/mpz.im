@@ -8,6 +8,11 @@ import Pagination from '../../components/Pagination';
 const DEFAULT_EXCERPT_LENGTH = 150;
 
 function generateExcerpt(content: string, length: number): string {
+  // Validate length parameter to handle edge cases
+  if (length <= 0) {
+    return '';
+  }
+
   // Strip markdown/HTML and get plain text
   const plainText = content
     .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
@@ -44,23 +49,21 @@ const { title, hero } = postsPage.data;
 const { page } = Astro.props;
 
 // Generate excerpts for each post
-const postsWithExcerpts = await Promise.all(
-  page.data.map(async (post) => {
-    let excerpt = post.data.excerpt;
+const postsWithExcerpts = page.data.map((post) => {
+  let excerpt = post.data.excerpt;
 
-    // If no custom excerpt is provided, generate from content
-    if (!excerpt) {
-      const { body } = post;
-      const excerptLength = post.data.excerptLength || DEFAULT_EXCERPT_LENGTH;
-      excerpt = generateExcerpt(body, excerptLength);
-    }
+  // If no custom excerpt is provided, generate from content
+  if (!excerpt) {
+    const { body } = post;
+    const excerptLength = post.data.excerptLength || DEFAULT_EXCERPT_LENGTH;
+    excerpt = generateExcerpt(body, excerptLength);
+  }
 
-    return {
-      ...post,
-      excerpt,
-    };
-  })
-);
+  return {
+    ...post,
+    excerpt,
+  };
+});
 ---
 
 <Page title={title} hero={hero}>
