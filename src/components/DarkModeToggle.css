@@ -13,16 +13,29 @@
   line-height: 1;
 }
 
-.dark-mode-toggle:hover {
-  background: var(--accent);
-  color: var(--bg-primary);
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--shadow);
+/* Prevent hover styles on touch devices to avoid sticky hover state */
+@media (hover: hover) and (pointer: fine) {
+  .dark-mode-toggle:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--shadow);
+  }
 }
 
 .dark-mode-toggle:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 var(--shadow);
+}
+
+/* Remove focus outline on mobile to prevent active state styling */
+.dark-mode-toggle:focus {
+  outline: none;
+}
+
+.dark-mode-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
