@@ -21,8 +21,8 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 
 // Use custom OG image if provided, otherwise use hero image, otherwise use default
 const finalOgImage = ogImage || hero;
-// Use custom description if provided, otherwise use default
-const finalDescription = description || 'Read this post on Miguel Palau\'s blog';
+// Use custom description if provided, otherwise include post title in fallback
+const finalDescription = description || `Read "${title}" on Miguel Palau's blog`;
 ---
 
 <BaseLayout

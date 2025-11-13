@@ -18,16 +18,23 @@ const {
 } = Astro.props;
 
 const pageTitle = title === 'Miguel Palau' ? title : `${title} | Miguel Palau`;
-const siteUrl = 'https://mpz.im';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://mpz.im';
 const defaultOgImage = `${siteUrl}/favicon.svg`;
 
-// Convert relative URLs to absolute URLs for OG image (required by Open Graph Protocol)
-const finalOgImage = ogImage
-  ? ogImage.startsWith('http')
-    ? ogImage
-    : `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
-  : defaultOgImage;
+// Helper function to convert relative URLs to absolute URLs for OG image (required by Open Graph Protocol)
+function getAbsoluteOgImageUrl(ogImage: string | undefined, siteUrl: string, defaultOgImage: string): string {
+  if (!ogImage) {
+    return defaultOgImage;
+  }
+  if (ogImage.startsWith('http')) {
+    return ogImage;
+  }
+  // Ensure leading slash for relative URLs
+  const path = ogImage.startsWith('/') ? ogImage : `/${ogImage}`;
+  return `${siteUrl}${path}`;
+}
 
+const finalOgImage = getAbsoluteOgImageUrl(ogImage, siteUrl, defaultOgImage);
 const canonicalUrl = ogUrl || Astro.url.href;
 ---
 
