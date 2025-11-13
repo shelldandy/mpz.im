@@ -58,15 +58,28 @@
   position: relative;
 }
 
-.hamburger-menu:hover {
-  background: var(--accent);
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--shadow);
+/* Prevent hover styles on touch devices to avoid sticky hover state */
+@media (hover: hover) and (pointer: fine) {
+  .hamburger-menu:hover {
+    background: var(--accent);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--shadow);
+  }
 }
 
 .hamburger-menu:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 var(--shadow);
+}
+
+/* Remove focus outline on mobile to prevent active state styling */
+.hamburger-menu:focus {
+  outline: none;
+}
+
+.hamburger-menu:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .hamburger-icon {
@@ -98,10 +111,13 @@
   top: 6px;
 }
 
-.hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open),
-.hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open)::before,
-.hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open)::after {
-  background: var(--bg-primary);
+/* Prevent hover styles on touch devices to avoid sticky hover state */
+@media (hover: hover) and (pointer: fine) {
+  .hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open),
+  .hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open)::before,
+  .hamburger-menu:hover .hamburger-icon:not(.hamburger-icon-open)::after {
+    background: var(--bg-primary);
+  }
 }
 
 .hamburger-icon-open {

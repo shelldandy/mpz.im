@@ -18,12 +18,15 @@ const DarkModeToggle: FunctionalComponent = () => {
     document.documentElement.setAttribute('data-theme', shouldBeDark ? 'dark' : 'light');
   }, []);
 
-  const toggleTheme = () => {
+  const toggleTheme = (e: MouseEvent) => {
     const newTheme = !isDark;
     setIsDark(newTheme);
     const themeValue = newTheme ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', themeValue);
     localStorage.setItem('theme', themeValue);
+
+    // Remove focus on mobile to prevent sticky active state
+    (e.currentTarget as HTMLButtonElement)?.blur();
   };
 
   return (

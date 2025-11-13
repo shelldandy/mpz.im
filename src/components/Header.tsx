@@ -6,8 +6,11 @@ import './Header.css';
 const Header: FunctionalComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = (e: MouseEvent) => {
     setIsMenuOpen(!isMenuOpen);
+
+    // Remove focus on mobile to prevent sticky active state
+    (e.currentTarget as HTMLButtonElement)?.blur();
   };
 
   return (
