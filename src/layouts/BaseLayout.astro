@@ -20,7 +20,14 @@ const {
 const pageTitle = title === 'Miguel Palau' ? title : `${title} | Miguel Palau`;
 const siteUrl = 'https://mpz.im';
 const defaultOgImage = `${siteUrl}/favicon.svg`;
-const finalOgImage = ogImage || defaultOgImage;
+
+// Convert relative URLs to absolute URLs for OG image (required by Open Graph Protocol)
+const finalOgImage = ogImage
+  ? ogImage.startsWith('http')
+    ? ogImage
+    : `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
+  : defaultOgImage;
+
 const canonicalUrl = ogUrl || Astro.url.href;
 ---
 
