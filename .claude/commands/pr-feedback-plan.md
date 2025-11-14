@@ -1,1 +1,1 @@
-Use `gh` to find any review feedback about this branch PR. Make a comprehensive plan on how to address them and save it as a markdown file inside of @specs.local
+Use `gh` to find any review feedback about this branch PR. Make a comprehensive plan on how to address them and save it as a markdown file inside of @specs.local. if an action plan for that PR already exists create a new one and append a `-revision-XX` to the filename.
