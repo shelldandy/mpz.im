@@ -5,6 +5,35 @@ import Page from '../../layouts/Page.astro';
 import BlogPostCard from '../../components/BlogPostCard';
 import Pagination from '../../components/Pagination';
 
+const DEFAULT_EXCERPT_LENGTH = 150;
+
+function generateExcerpt(content: string, length: number): string {
+  // Validate length parameter to handle edge cases
+  if (length <= 0) {
+    return '';
+  }
+
+  // Strip markdown/HTML and get plain text
+  const plainText = content
+    .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
+    .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // Convert links to text
+    .replace(/[#*_`~]/g, '') // Remove markdown formatting
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .trim();
+
+  // Truncate to specified length
+  if (plainText.length <= length) {
+    return plainText;
+  }
+
+  // Find the last space before the length limit to avoid cutting words
+  const truncated = plainText.substring(0, length);
+  const lastSpace = truncated.lastIndexOf(' ');
+
+  return lastSpace > 0
+    ? truncated.substring(0, lastSpace) + '...'
+    : truncated + '...';
+}
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection('posts');
@@ -18,6 +47,23 @@ const { Content } = await postsPage.render();
 const { title, hero, description, ogImage } = postsPage.data;
 
 const { page } = Astro.props;
+
+// Generate excerpts for each post
+const postsWithExcerpts = page.data.map((post) => {
+  let excerpt = post.data.excerpt;
+
+  // If no custom excerpt is provided, generate from content
+  if (!excerpt) {
+    const { body } = post;
+    const excerptLength = post.data.excerptLength || DEFAULT_EXCERPT_LENGTH;
+    excerpt = generateExcerpt(body, excerptLength);
+  }
+
+  return {
+    ...post,
+    excerpt,
+  };
+});
 ---
 
 <Page
@@ -29,11 +75,12 @@ const { page } = Astro.props;
   <Content />
 
   <div class="posts-list">
-    {page.data.map((post) => (
+    {postsWithExcerpts.map((post) => (
       <BlogPostCard
         title={post.data.title}
         date={post.data.date}
         slug={post.slug}
+        excerpt={post.excerpt}
         client:load
       />
     ))}
