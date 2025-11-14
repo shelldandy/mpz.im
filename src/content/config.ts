@@ -6,6 +6,8 @@ const posts = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     hero: z.string().optional(),
+    description: z.string().optional(),
+    ogImage: z.string().optional(),
     // Post preview/excerpt configuration
     excerpt: z.string().optional(),
     excerptLength: z.number().positive().optional(),
@@ -25,6 +27,8 @@ const pages = defineCollection({
     title: z.string().optional(),
     route: z.string().optional(),
     hero: z.string().optional(),
+    description: z.string().optional(),
+    ogImage: z.string().optional(),
     cta: z.object({
       label: z.string(),
       link: z.string(),

@@ -7,18 +7,30 @@ interface Props {
   title: string;
   date: Date;
   hero?: string;
+  description?: string;
+  ogImage?: string;
 }
 
-const { title, date, hero } = Astro.props;
+const { title, date, hero, description, ogImage } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 }).format(date);
+
+// Use custom OG image if provided, otherwise use hero image, otherwise use default
+const finalOgImage = ogImage || hero;
+// Use custom description if provided, otherwise include post title in fallback
+const finalDescription = description || `Read "${title}" on Miguel Palau's blog`;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout
+  title={title}
+  description={finalDescription}
+  ogImage={finalOgImage}
+  ogType="article"
+>
   <Header client:load />
 
   <main class="post-layout">

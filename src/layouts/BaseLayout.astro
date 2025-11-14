@@ -4,10 +4,38 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
+  ogUrl?: string;
 }
 
-const { title = 'Miguel Palau', description = 'Personal website and blog' } = Astro.props;
+const {
+  title = 'Miguel Palau',
+  description = 'Personal website and blog',
+  ogImage,
+  ogType = 'website',
+  ogUrl
+} = Astro.props;
+
 const pageTitle = title === 'Miguel Palau' ? title : `${title} | Miguel Palau`;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://mpz.im';
+const defaultOgImage = `${siteUrl}/favicon.svg`;
+
+// Helper function to convert relative URLs to absolute URLs for OG image (required by Open Graph Protocol)
+function getAbsoluteOgImageUrl(ogImage: string | undefined, siteUrl: string, defaultOgImage: string): string {
+  if (!ogImage) {
+    return defaultOgImage;
+  }
+  if (ogImage.startsWith('http')) {
+    return ogImage;
+  }
+  // Ensure leading slash for relative URLs
+  const path = ogImage.startsWith('/') ? ogImage : `/${ogImage}`;
+  return `${siteUrl}${path}`;
+}
+
+const finalOgImage = getAbsoluteOgImageUrl(ogImage, siteUrl, defaultOgImage);
+const canonicalUrl = ogUrl || Astro.url.href;
 ---
 
 <!doctype html>
@@ -19,6 +47,22 @@ const pageTitle = title === 'Miguel Palau' ? title : `${title} | Miguel Palau`;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+
+    <!-- Open Graph Protocol -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={finalOgImage} />
+    <meta property="og:site_name" content="Miguel Palau" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={finalOgImage} />
+
     <script is:inline>
       // Prevent FOUC by setting theme before page renders
       const theme = localStorage.getItem('theme') ||

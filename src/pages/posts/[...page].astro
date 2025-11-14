@@ -44,7 +44,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const postsPage = await getEntry('pages', 'posts');
 const { Content } = await postsPage.render();
-const { title, hero } = postsPage.data;
+const { title, hero, description, ogImage } = postsPage.data;
 
 const { page } = Astro.props;
 
@@ -66,7 +66,12 @@ const postsWithExcerpts = page.data.map((post) => {
 });
 ---
 
-<Page title={title} hero={hero}>
+<Page
+  title={title}
+  hero={hero}
+  description={description}
+  ogImage={ogImage}
+>
   <Content />
 
   <div class="posts-list">
