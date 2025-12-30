@@ -11,7 +11,7 @@ const { title = '404 - Page Not Found' } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <Header client:load />
+  <Header client:idle />
 
   <main class="error-layout">
     <div class="error-content">

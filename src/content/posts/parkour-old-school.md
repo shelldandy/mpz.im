@@ -1,7 +1,7 @@
 ---
 title: Parkour Old School
 date: 2014-08-25
-hero: https://cldup.com/VqijN0upL3.jpg
+hero: /images/parkour-hero.webp
 ---
 
 ### La lección del pasado

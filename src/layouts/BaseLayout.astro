@@ -69,6 +69,7 @@ const canonicalUrl = ogUrl || Astro.url.href;
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', theme);
     </script>
+    <slot name="head" />
   </head>
   <body>
     <slot />

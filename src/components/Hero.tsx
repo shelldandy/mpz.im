@@ -13,7 +13,14 @@ interface HeroProps {
 const Hero: FunctionalComponent<HeroProps> = ({ imageUrl, title, cta }) => {
   return (
     <div class="hero-section">
-      <div class="hero-image" style={{ backgroundImage: `url(${imageUrl})` }}>
+      <div class="hero-image">
+        <img
+          src={imageUrl}
+          alt=""
+          class="hero-img"
+          fetchpriority="high"
+          decoding="async"
+        />
         <div class="hero-overlay">
           <div class="hero-content">
             <h1 class="hero-title">{title}</h1>

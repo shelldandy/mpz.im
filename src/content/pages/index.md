@@ -1,6 +1,6 @@
 ---
 title: Miguel Palau
-hero: https://cl.ly/85ace316cba9/hero.jpg
+hero: /images/hero.webp
 cta:
   label: Resume
   link: "resume"

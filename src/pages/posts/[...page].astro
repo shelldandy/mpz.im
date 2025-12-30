@@ -81,12 +81,12 @@ const postsWithExcerpts = page.data.map((post) => {
         date={post.data.date}
         slug={post.slug}
         excerpt={post.excerpt}
-        client:load
+        client:idle
       />
     ))}
   </div>
 
-  <Pagination page={page} client:load />
+  <Pagination page={page} client:idle />
 </Page>
 
 <style>

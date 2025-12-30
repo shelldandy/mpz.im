@@ -31,12 +31,15 @@ const finalDescription = description || `Read "${title}" on Miguel Palau's blog`
   ogImage={finalOgImage}
   ogType="article"
 >
-  <Header client:load />
+  {hero && (
+    <link slot="head" rel="preload" as="image" href={hero} fetchpriority="high" />
+  )}
+  <Header client:idle />
 
   <main class="post-layout">
     {hero && (
       <div class="hero">
-        <img src={hero} alt={title} />
+        <img src={hero} alt={title} fetchpriority="high" />
       </div>
     )}
 

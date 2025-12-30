@@ -21,12 +21,15 @@ const finalOgImage = ogImage || hero;
   description={description}
   ogImage={finalOgImage}
 >
-  <Header client:load />
+  {hero && (
+    <link slot="head" rel="preload" as="image" href={hero} fetchpriority="high" />
+  )}
+  <Header client:idle />
 
   <main class="page-layout">
     {hero && (
       <div class="hero">
-        <img src={hero} alt={title || 'Page hero'} />
+        <img src={hero} alt={title || 'Page hero'} fetchpriority="high" />
       </div>
     )}
 
