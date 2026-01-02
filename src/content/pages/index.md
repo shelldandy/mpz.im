@@ -14,7 +14,7 @@ I love working with modern web technologies and I'm passionate about always stay
 
 Also I enjoy working with and contributing to [open source](https://github.com/shelldandy/) and also I love tweaking my terminal and [dotfiles](https://github.com/mike3run/dotfiles)
 
-Currently I work as a Software Engineer at [Grafana Labs](https://www.grafana.com/) where I do mostly [ReactJS](https://reactjs.org/) and [Go](https://go.dev/) on the regular.
+Currently I work as a Software Engineer at [Grafana Labs](https://www.grafana.com/) where I do mostly [ReactJS](https://reactjs.org/) and [GoLang](https://go.dev/) on the regular.
 
 In my spare time I enjoy working on my [homelab](https://github.com/shelldandy/homelab) where I strive for my [digital sovereignty](https://en.wikipedia.org/wiki/Network_sovereignty)
 
