@@ -18,4 +18,4 @@ Currently I work as a Software Engineer at [Grafana Labs](https://www.grafana.co
 
 In my spare time I enjoy working on my [homelab](https://github.com/shelldandy/homelab) where I strive for my [digital sovereignty](https://en.wikipedia.org/wiki/Network_sovereignty)
 
-This webpage was built using [Astro](https://phenomic.io/) with [Preact](https://preactjs.com/) and its hosted on [Netlify](https://www.netlify.com/) feel free to check the [source code](https://github.com/shelldandy/mpz.im)
+This webpage was built using [Astro](https://astro.build/) with [Preact](https://preactjs.com/) and its hosted on [Netlify](https://www.netlify.com/) feel free to check the [source code](https://github.com/shelldandy/mpz.im)
