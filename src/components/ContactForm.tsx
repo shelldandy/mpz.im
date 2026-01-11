@@ -1,16 +1,104 @@
-import { useState } from 'preact/hooks';
+import { useState, useEffect, useRef } from 'preact/hooks';
 import type { FunctionalComponent } from 'preact';
 import './ContactForm.css';
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string;
+          callback: (token: string) => void;
+          'expired-callback': () => void;
+          'error-callback': () => void;
+          theme?: 'light' | 'dark' | 'auto';
+        }
+      ) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
+
+const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 
 const ContactForm: FunctionalComponent = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [captchaReady, setCaptchaReady] = useState(false);
   const [status, setStatus] = useState<{
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
+
+  const captchaRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    // Load Turnstile script
+    if (document.querySelector('script[src*="turnstile"]')) {
+      // Script already loaded, try to render
+      renderCaptcha();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad';
+    script.async = true;
+    script.defer = true;
+
+    (window as Window & { onTurnstileLoad?: () => void }).onTurnstileLoad = () => {
+      renderCaptcha();
+    };
+
+    document.head.appendChild(script);
+
+    return () => {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+      }
+    };
+  }, []);
+
+  const renderCaptcha = () => {
+    if (!captchaRef.current || !window.turnstile || !TURNSTILE_SITE_KEY) {
+      return;
+    }
+
+    // Clear any existing widget
+    if (widgetIdRef.current) {
+      window.turnstile.remove(widgetIdRef.current);
+    }
+
+    widgetIdRef.current = window.turnstile.render(captchaRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      callback: (token: string) => {
+        setCaptchaToken(token);
+        setCaptchaReady(true);
+      },
+      'expired-callback': () => {
+        setCaptchaToken('');
+        setCaptchaReady(false);
+      },
+      'error-callback': () => {
+        setCaptchaToken('');
+        setCaptchaReady(false);
+      },
+      theme: 'auto',
+    });
+  };
+
+  const resetCaptcha = () => {
+    setCaptchaToken('');
+    setCaptchaReady(false);
+    if (widgetIdRef.current && window.turnstile) {
+      window.turnstile.reset(widgetIdRef.current);
+    }
+  };
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
@@ -38,6 +126,16 @@ const ContactForm: FunctionalComponent = () => {
       return;
     }
 
+    // Validate captcha
+    if (!captchaToken) {
+      setStatus({
+        type: 'error',
+        message: 'Please complete the captcha verification.',
+      });
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch('/.netlify/functions/contact', {
         method: 'POST',
@@ -48,6 +146,7 @@ const ContactForm: FunctionalComponent = () => {
           name: name.trim(),
           email: email.trim(),
           message: message.trim(),
+          captchaToken,
         }),
       });
 
@@ -61,6 +160,7 @@ const ContactForm: FunctionalComponent = () => {
         setName('');
         setEmail('');
         setMessage('');
+        resetCaptcha();
       } else {
         setStatus({
           type: 'error',
@@ -136,6 +236,13 @@ const ContactForm: FunctionalComponent = () => {
         </div>
       </div>
 
+      <div class="form-group captcha-container">
+        <div ref={captchaRef} class="captcha-widget" />
+        {!TURNSTILE_SITE_KEY && (
+          <p class="captcha-warning">Captcha not configured</p>
+        )}
+      </div>
+
       {status.type && (
         <div
           class={`form-status ${status.type === 'success' ? 'form-status-success' : 'form-status-error'}`}
@@ -148,7 +255,7 @@ const ContactForm: FunctionalComponent = () => {
       <button
         type="submit"
         class="form-submit"
-        disabled={loading || !name.trim() || !email.trim() || !message.trim()}
+        disabled={loading || !name.trim() || !email.trim() || !message.trim() || !captchaToken}
       >
         {loading ? 'Sending...' : 'Send Message'}
       </button>
