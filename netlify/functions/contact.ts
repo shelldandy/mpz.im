@@ -4,6 +4,14 @@ interface ContactFormData {
   name: string;
   email: string;
   message: string;
+  captchaToken: string;
+}
+
+interface TurnstileVerifyResponse {
+  success: boolean;
+  'error-codes'?: string[];
+  challenge_ts?: string;
+  hostname?: string;
 }
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
@@ -54,6 +62,50 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'Message is too long (max 2000 characters)' }),
+      };
+    }
+
+    // Verify captcha token
+    const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
+    if (!TURNSTILE_SECRET_KEY) {
+      console.error('Turnstile secret key not configured');
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          error: 'Captcha verification is not configured. Please try again later.'
+        }),
+      };
+    }
+
+    if (!data.captchaToken) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Captcha verification required' }),
+      };
+    }
+
+    // Verify with Cloudflare Turnstile
+    const turnstileResponse = await fetch(
+      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          secret: TURNSTILE_SECRET_KEY,
+          response: data.captchaToken,
+        }),
+      }
+    );
+
+    const turnstileResult: TurnstileVerifyResponse = await turnstileResponse.json();
+
+    if (!turnstileResult.success) {
+      console.error('Turnstile verification failed:', turnstileResult['error-codes']);
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Captcha verification failed. Please try again.' }),
       };
     }
 

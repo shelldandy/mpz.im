@@ -122,6 +122,23 @@
   border-color: var(--border);
 }
 
+.captcha-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.captcha-widget {
+  min-height: 65px;
+}
+
+.captcha-warning {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .contact-form {
     max-width: 100%;
@@ -137,5 +154,9 @@
     font-size: 1rem;
     padding: 1rem 1.5rem;
     border-width: 3px;
+  }
+
+  .captcha-container {
+    align-items: center;
   }
 }
