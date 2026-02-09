@@ -188,6 +188,7 @@ a:hover {
   font-size: 1rem;
   line-height: 1.5;
   box-shadow: 6px 6px 0 var(--shadow);
+  max-width: 100%;
 }
 
 .prose code {
