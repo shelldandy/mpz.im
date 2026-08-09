@@ -2,7 +2,7 @@
 title: Miguel Palau
 hero: /images/hero.webp
 cta:
-  label: Resume
+  label: View Resume
   link: "resume"
 ---
 

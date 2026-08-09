@@ -62,7 +62,7 @@ const finalDescription = description || `Read "${title}" on Miguel Palau's blog`
   .post-layout {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
     overflow-x: hidden;
   }
 
@@ -70,6 +70,7 @@ const finalDescription = description || `Read "${title}" on Miguel Palau's blog`
     margin: -2rem -1rem 2rem;
     max-height: 400px;
     overflow: hidden;
+    border-radius: 8px;
   }
 
   .hero img {
@@ -92,7 +93,7 @@ const finalDescription = description || `Read "${title}" on Miguel Palau's blog`
 
   .post-header time {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .prose {
@@ -101,6 +102,10 @@ const finalDescription = description || `Read "${title}" on Miguel Palau's blog`
   }
 
   @media (max-width: 768px) {
+    .post-layout {
+      padding: 2rem 1.5rem;
+    }
+
     .post-header h1 {
       font-size: 2rem;
     }

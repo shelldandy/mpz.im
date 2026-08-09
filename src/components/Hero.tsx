@@ -10,29 +10,27 @@ interface HeroProps {
   };
 }
 
-const Hero: FunctionalComponent<HeroProps> = ({ imageUrl, title, cta }) => {
+const Hero: FunctionalComponent<HeroProps> = ({ title }) => {
+  const techStack = ['TypeScript', 'React', 'Go', 'Python', 'Rust', 'Docker', 'K8s', 'AWS'];
   return (
-    <div class="hero-section">
-      <div class="hero-image">
-        <img
-          src={imageUrl}
-          alt=""
-          class="hero-img"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <div class="hero-overlay">
-          <div class="hero-content">
-            <h1 class="hero-title">{title}</h1>
-            {cta && (
-              <a href={`/${cta.link}`} class="hero-cta">
-                {cta.label}
-              </a>
-            )}
-          </div>
+    <section class="hero-section">
+      <div class="hero-container">
+        <span class="hero-label">Fullstack Engineer</span>
+        <h1 class="hero-title">I build products people rely on.</h1>
+        <p class="hero-subtitle">
+          Senior Engineer at Grafana Labs with 10 years of experience in TypeScript, React, and Go.
+        </p>
+        <div class="tech-badges">
+          {techStack.map(tech => (
+            <span class="tech-badge" key={tech}>{tech}</span>
+          ))}
+        </div>
+        <div class="hero-ctas">
+          <a href="/resume" class="btn btn-primary">View Resume &rarr;</a>
+          <a href="/contact" class="btn btn-secondary">Get in Touch</a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

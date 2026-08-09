@@ -8,17 +8,13 @@ const Header: FunctionalComponent = () => {
 
   const toggleMenu = (e: MouseEvent) => {
     setIsMenuOpen(!isMenuOpen);
-
-    // Remove focus on mobile to prevent sticky active state
     (e.currentTarget as HTMLButtonElement)?.blur();
   };
 
   return (
     <header class="site-header">
       <nav class="nav-container">
-        <a href="/" class="logo">
-          Miguel Palau
-        </a>
+        <a href="/" class="logo-mark">MP</a>
         <div class="nav-right">
           <ul class={`nav-links ${isMenuOpen ? 'nav-links-open' : ''}`}>
             <li>
@@ -32,6 +28,10 @@ const Header: FunctionalComponent = () => {
             </li>
           </ul>
           <div class="nav-controls">
+            <div class="availability-badge">
+              <span class="green-dot"></span>
+              <span class="availability-text">Available</span>
+            </div>
             <button
               class="hamburger-menu"
               onClick={toggleMenu}

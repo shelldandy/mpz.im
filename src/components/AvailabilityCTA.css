@@ -1,0 +1,50 @@
+.availability-cta {
+  background: var(--bg-secondary);
+  padding: 5rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.availability-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.availability-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  color: var(--text-primary);
+}
+
+.availability-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.availability-list li {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.check {
+  color: var(--green);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.btn-large {
+  padding: 14px 32px;
+  font-size: 1.1rem;
+}
+
+.response-time {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}

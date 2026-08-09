@@ -46,15 +46,16 @@ const finalOgImage = ogImage || hero;
 
 <style>
   .page-layout {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
   }
 
   .hero {
     margin: -2rem -1rem 2rem;
     max-height: 300px;
     overflow: hidden;
+    border-radius: 8px;
   }
 
   .hero img {
@@ -77,6 +78,10 @@ const finalOgImage = ogImage || hero;
   }
 
   @media (max-width: 768px) {
+    .page-layout {
+      padding: 2rem 1.5rem;
+    }
+
     .page-content h1 {
       font-size: 2rem;
     }

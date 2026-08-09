@@ -3,6 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
+import StatBar from '../components/StatBar';
+import AvailabilityCTA from '../components/AvailabilityCTA';
 
 interface Props {
   title: string;
@@ -26,12 +28,11 @@ const finalOgImage = ogImage || hero;
   description={description}
   ogImage={finalOgImage}
 >
-  {hero && (
-    <link slot="head" rel="preload" as="image" href={hero} fetchpriority="high" />
-  )}
   <Header client:idle />
 
-  {hero && <Hero imageUrl={hero} title={title} cta={cta} />}
+  {hero && <Hero imageUrl={hero} title={title} cta={cta} client:idle />}
+
+  <StatBar client:idle />
 
   <main class="homepage-content">
     <div class="prose">
@@ -39,6 +40,7 @@ const finalOgImage = ogImage || hero;
     </div>
   </main>
 
+  <AvailabilityCTA client:idle />
   <Footer />
 </BaseLayout>
 
@@ -46,7 +48,7 @@ const finalOgImage = ogImage || hero;
   .homepage-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
   }
 
   .prose {

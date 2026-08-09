@@ -1,48 +1,43 @@
 .dark-mode-toggle {
-  background: var(--bg-secondary);
-  border: 4px solid var(--border);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
   color: var(--text-primary);
-  font-size: 1.5rem;
-  width: 50px;
-  height: 50px;
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: 900;
-  box-shadow: 4px 4px 0 var(--shadow);
   position: relative;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Prevent hover styles on touch devices to avoid sticky hover state */
 @media (hover: hover) and (pointer: fine) {
   .dark-mode-toggle:hover {
-    background: var(--accent);
-    color: var(--bg-primary);
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--shadow);
+    background: var(--bg-secondary);
   }
 }
 
 .dark-mode-toggle:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--shadow);
+  transform: scale(0.95);
 }
 
-/* Remove focus outline on mobile to prevent active state styling */
 .dark-mode-toggle:focus {
   outline: none;
 }
 
 .dark-mode-toggle:focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
   .dark-mode-toggle {
-    width: 40px;
-    height: 40px;
-    font-size: 1.25rem;
-    border-width: 3px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 }
