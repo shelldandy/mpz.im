@@ -14,7 +14,9 @@ const BlogPostCard: FunctionalComponent<BlogPostCardProps> = ({
   slug,
   excerpt
 }) => {
+  const hash = slug.substring(0, 7);
   const formattedDate = new Intl.DateTimeFormat('en-US', {
+    weekday: 'short',
     year: 'numeric',
     month: 'short',
     day: 'numeric'
@@ -23,11 +25,24 @@ const BlogPostCard: FunctionalComponent<BlogPostCardProps> = ({
   return (
     <article class="blog-post-card">
       <a href={`/posts/${slug}`} class="post-link">
-        <h2 class="post-title">{title}</h2>
-        <time class="post-date" datetime={date.toISOString()}>
-          {formattedDate}
-        </time>
-        {excerpt && <p class="post-excerpt">{excerpt}</p>}
+        <div class="commit-header">
+          <span class="commit-label">commit</span>{' '}
+          <span class="commit-hash">{hash}</span>
+        </div>
+        <div class="commit-meta">
+          Author: Miguel Palau &lt;hola@mpz.im&gt;
+        </div>
+        <div class="commit-meta">
+          Date:{'   '}{formattedDate}
+        </div>
+        <div class="commit-message">
+          {'    '}{title}
+        </div>
+        {excerpt && (
+          <div class="commit-body">
+            {'    '}{excerpt}
+          </div>
+        )}
       </a>
     </article>
   );

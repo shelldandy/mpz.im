@@ -1,9 +1,5 @@
 ---
 title: Miguel Palau
-hero: /images/hero.webp
-cta:
-  label: Resume
-  link: "resume"
 ---
 
 Hi there! Thanks for stopping by 👋

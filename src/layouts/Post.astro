@@ -19,9 +19,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   day: 'numeric'
 }).format(date);
 
-// Use custom OG image if provided, otherwise use hero image, otherwise use default
 const finalOgImage = ogImage || hero;
-// Use custom description if provided, otherwise include post title in fallback
 const finalDescription = description || `Read "${title}" on Miguel Palau's blog`;
 ---
 
@@ -88,11 +86,17 @@ const finalDescription = description || `Read "${title}" on Miguel Palau's blog`
     line-height: 1.2;
     margin: 0 0 0.5rem 0;
     color: var(--text-primary);
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-transform: none;
+    padding: 0;
+    letter-spacing: normal;
   }
 
   .post-header time {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .prose {

@@ -4,17 +4,15 @@
 }
 
 .form-group {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-label {
   display: block;
-  margin-bottom: 0.75rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 .required {
@@ -24,23 +22,20 @@
 .form-input,
 .form-textarea {
   width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
-  font-family: 'Courier New', 'Courier', monospace;
-  font-weight: 700;
-  border: 4px solid var(--border);
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-weight: 400;
+  border: 1px solid var(--border);
   background: var(--bg-secondary);
   color: var(--text-primary);
-  transition: all 0.2s ease;
-  box-shadow: 4px 4px 0 var(--shadow);
+  transition: border-color 0.2s ease;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
   border-color: var(--accent);
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--shadow);
 }
 
 .form-input:disabled,
@@ -57,69 +52,60 @@
 
 .char-count {
   text-align: right;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  margin-top: 0.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  margin-top: 0.25rem;
+  font-weight: 400;
 }
 
 .form-status {
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  border: 4px solid var(--border);
-  font-weight: 700;
-  box-shadow: 4px 4px 0 var(--shadow);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  font-weight: 400;
 }
 
 .form-status-success {
   background: var(--green);
-  color: var(--status-success-text);
-  border-color: var(--border);
+  color: #1a1a1a;
+  border-color: var(--green);
 }
 
 .form-status-error {
   background: var(--accent);
   color: var(--bg-primary);
-  border-color: var(--border);
+  border-color: var(--accent);
 }
 
 .form-submit {
   width: 100%;
-  padding: 1.25rem 2rem;
-  font-size: 1.25rem;
-  font-weight: 900;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
   color: var(--bg-primary);
   background: var(--accent);
-  border: 4px solid var(--border);
+  border: 1px solid var(--accent);
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-family: 'Courier New', 'Courier', monospace;
-  box-shadow: 6px 6px 0 var(--shadow);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
   transition: all 0.2s ease;
 }
 
 .form-submit:hover:not(:disabled) {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(--shadow);
+  opacity: 0.9;
 }
 
 .form-submit:active:not(:disabled) {
-  transform: translate(2px, 2px);
-  box-shadow: 3px 3px 0 var(--shadow);
+  opacity: 0.8;
 }
 
 .form-submit:disabled {
-  background: var(--text-secondary);
+  opacity: 0.4;
   cursor: not-allowed;
-  opacity: 0.5;
 }
 
 .form-submit:focus {
   outline: none;
-  border-color: var(--border);
 }
 
 .captcha-container {
@@ -134,8 +120,8 @@
 
 .captcha-warning {
   color: var(--text-secondary);
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -146,14 +132,7 @@
 
   .form-input,
   .form-textarea {
-    font-size: 16px; /* Prevents zoom on iOS */
-    border-width: 3px;
-  }
-
-  .form-submit {
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border-width: 3px;
+    font-size: 16px;
   }
 
   .captcha-container {

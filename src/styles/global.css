@@ -1,47 +1,53 @@
-/* CSS Variables for theming - Gruvbox colors */
 :root {
-  --bg-primary: #fbf1c7;
-  --bg-secondary: #ebdbb2;
-  --text-primary: #3c3836;
-  --text-secondary: #504945;
-  --accent: #cc241d;
-  --border: #3c3836;
-  --code-bg: #ebdbb2;
-  --code-text: #3c3836;
-  --shadow: rgba(60, 56, 54, 0.3);
-  --overlay: rgba(60, 56, 54, 0.7);
-  --yellow: #d79921;
-  --orange: #d65d0e;
-  --green: #98971a;
-  --aqua: #689d6a;
-  --blue: #458588;
-  --purple: #b16286;
-  --status-success-text: #3c3836;
-  --hero-text: #ffffff;
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F0F0F0;
+  --text-primary: #383A42;
+  --text-secondary: #A0A1A7;
+  --accent: #E45649;
+  --border: #D4D4D4;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --code-bg: #F0F0F0;
+  --code-text: #383A42;
+  --green: #50A14F;
+  --blue: #4078F2;
+  --yellow: #C18401;
+  --purple: #A626A4;
+  --cyan: #0184BC;
+  --overlay: rgba(0, 0, 0, 0.5);
+  --hero-text: #383A42;
+  --terminal-prompt: #50A14F;
+  --terminal-path: #4078F2;
+  --terminal-cmd: #C18401;
+  --window-dot-red: #FF5F57;
+  --window-dot-yellow: #FEBC2E;
+  --window-dot-green: #28C840;
 }
 
 [data-theme='dark'] {
-  --bg-primary: #282828;
-  --bg-secondary: #3c3836;
-  --text-primary: #ebdbb2;
-  --text-secondary: #d5c4a1;
-  --accent: #fb4934;
-  --border: #ebdbb2;
-  --code-bg: #3c3836;
-  --code-text: #ebdbb2;
-  --shadow: rgba(235, 219, 178, 0.3);
-  --overlay: rgba(40, 40, 40, 0.7);
-  --yellow: #fabd2f;
-  --orange: #fe8019;
-  --green: #b8bb26;
-  --aqua: #8ec07c;
-  --blue: #83a598;
-  --purple: #d3869b;
-  --status-success-text: #1a1a1a;
-  --hero-text: #ffffff;
+  --bg-primary: #1E1E2E;
+  --bg-secondary: #282A36;
+  --text-primary: #CDD6F4;
+  --text-secondary: #6C7086;
+  --accent: #F38BA8;
+  --border: #45475A;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --code-bg: #282A36;
+  --code-text: #CDD6F4;
+  --green: #A6E3A1;
+  --blue: #89B4FA;
+  --yellow: #F9E2AF;
+  --purple: #CBA6F7;
+  --cyan: #94E2D5;
+  --overlay: rgba(0, 0, 0, 0.7);
+  --hero-text: #CDD6F4;
+  --terminal-prompt: #A6E3A1;
+  --terminal-path: #89B4FA;
+  --terminal-cmd: #F9E2AF;
+  --window-dot-red: #F38BA8;
+  --window-dot-yellow: #F9E2AF;
+  --window-dot-green: #A6E3A1;
 }
 
-/* Reset and base styles */
 *,
 *::before,
 *::after {
@@ -59,74 +65,71 @@ html {
 }
 
 body {
-  font-family: 'Courier New', 'Courier', monospace;
-  font-size: 18px;
-  line-height: 1.5;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.7;
   color: var(--text-primary);
   background: var(--bg-primary);
   min-height: 100vh;
-  font-weight: 700;
+  font-weight: 400;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Typography - Brutalist style */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.3;
   margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  border: 5px solid var(--border);
-  padding: 1rem;
-  background: var(--bg-secondary);
-  box-shadow: 8px 8px 0 var(--shadow);
+  color: var(--text-primary);
 }
 
 h1 {
-  font-size: 3.5rem;
-  border-width: 8px;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 2.5rem;
-  border-width: 6px;
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 
 h3 {
-  font-size: 2rem;
-  border-width: 5px;
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 h4 {
-  font-size: 1.5rem;
-  border-width: 4px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h2::before,
+h3::before,
+h4::before {
+  content: '// ';
+  color: var(--text-secondary);
+  font-weight: 400;
 }
 
 p {
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 3px solid var(--accent);
-  font-weight: 700;
-  transition: all 0.2s ease;
+  font-weight: 400;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  background: var(--accent);
-  color: var(--bg-primary);
-  border-bottom: 3px solid var(--border);
+  text-decoration: underline;
 }
 
-/* Prose styles for markdown content */
 .prose {
   max-width: 65ch;
 }
@@ -138,25 +141,16 @@ a:hover {
 .prose h2 {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--text-primary);
 }
 
 .prose h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--text-primary);
 }
 
 .prose h4 {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--text-primary);
 }
 
 .prose ul,
@@ -167,38 +161,36 @@ a:hover {
 
 .prose li {
   margin-bottom: 0.75rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .prose img {
   max-width: 100%;
   height: auto;
-  border: 5px solid var(--border);
+  border: 1px solid var(--border);
   margin: 2rem 0;
-  box-shadow: 12px 12px 0 var(--shadow);
 }
 
 .prose pre {
   background: var(--code-bg);
   color: var(--code-text);
   padding: 1.5rem;
-  border: 4px solid var(--border);
+  border: 1px solid var(--border);
   overflow-x: auto;
   margin-bottom: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  box-shadow: 6px 6px 0 var(--shadow);
+  font-size: 0.9rem;
+  line-height: 1.6;
   max-width: 100%;
 }
 
 .prose code {
   background: var(--code-bg);
   color: var(--accent);
-  padding: 0.3rem 0.6rem;
-  font-size: 0.95em;
-  font-family: 'Courier New', 'Courier', monospace;
-  border: 2px solid var(--border);
-  font-weight: 700;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9em;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  border: 1px solid var(--border);
+  font-weight: 400;
   overflow-wrap: break-word;
 }
 
@@ -210,19 +202,16 @@ a:hover {
 }
 
 .prose blockquote {
-  border-left: 8px solid var(--accent);
+  border-left: 3px solid var(--accent);
   padding-left: 1.5rem;
   margin: 2rem 0;
   color: var(--text-secondary);
   font-style: italic;
-  font-weight: 700;
-  background: var(--bg-secondary);
-  padding: 1rem 1rem 1rem 1.5rem;
 }
 
 .prose hr {
   border: none;
-  border-top: 5px solid var(--border);
+  border-top: 1px solid var(--border);
   margin: 3rem 0;
 }
 
@@ -230,62 +219,51 @@ a:hover {
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
-  border: 4px solid var(--border);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  display: block;
 }
 
 .prose th,
 .prose td {
-  padding: 1rem;
-  border: 3px solid var(--border);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
   text-align: left;
-  font-weight: 700;
 }
 
 .prose th {
   background: var(--bg-secondary);
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 600;
 }
 
-/* Responsive typography */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
 @media (max-width: 768px) {
   body {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   h1 {
-    font-size: 2.5rem;
-    border-width: 6px;
-    padding: 0.75rem;
+    font-size: 2rem;
   }
 
   h2 {
-    font-size: 2rem;
-    border-width: 5px;
-    padding: 0.75rem;
+    font-size: 1.5rem;
   }
 
   h3 {
-    font-size: 1.5rem;
-    border-width: 4px;
-    padding: 0.5rem;
+    font-size: 1.2rem;
   }
 
   h4 {
-    font-size: 1.25rem;
-    border-width: 3px;
-    padding: 0.5rem;
-  }
-
-  .prose h2 {
-    font-size: 2rem;
-  }
-
-  .prose h3 {
-    font-size: 1.5rem;
-  }
-
-  .prose img {
-    box-shadow: 6px 6px 0 var(--shadow);
+    font-size: 1.1rem;
   }
 }
