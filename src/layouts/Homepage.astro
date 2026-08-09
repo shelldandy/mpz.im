@@ -26,18 +26,28 @@ const finalOgImage = ogImage || hero;
   description={description}
   ogImage={finalOgImage}
 >
-  {hero && (
-    <link slot="head" rel="preload" as="image" href={hero} fetchpriority="high" />
-  )}
   <Header client:idle />
 
-  {hero && <Hero imageUrl={hero} title={title} cta={cta} />}
+  <Hero client:load />
+
+  <section class="social-proof">
+    <div class="social-proof-container">
+      GRAFANA LABS &middot; CRATEJOY (YC W14) &middot; PIXEL2HTML
+    </div>
+  </section>
 
   <main class="homepage-content">
     <div class="prose">
       <slot />
     </div>
   </main>
+
+  <section class="cta-banner">
+    <div class="cta-banner-container">
+      <h2>Interested in working together?</h2>
+      <a href="/contact" class="cta-banner-btn">Get in Touch</a>
+    </div>
+  </section>
 
   <Footer />
 </BaseLayout>
@@ -46,11 +56,76 @@ const finalOgImage = ogImage || hero;
   .homepage-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
   }
 
   .prose {
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--text-primary);
+  }
+
+  .social-proof {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    text-align: center;
+  }
+
+  .social-proof-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .cta-banner {
+    background: var(--bg-secondary);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta-banner-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-banner h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 1.5rem;
+    border: none;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    text-transform: none;
+  }
+
+  .cta-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    background: var(--accent);
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .cta-banner-btn:hover {
+    background: #1D4ED8;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  :global([data-theme='dark']) .cta-banner-btn:hover {
+    background: #2563EB;
   }
 </style>
