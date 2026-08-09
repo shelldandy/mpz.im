@@ -1,15 +1,12 @@
 .blog-post-card {
-  border: 5px solid var(--border);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  background: var(--bg-secondary);
-  box-shadow: 8px 8px 0 var(--shadow);
-  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+  margin-bottom: 0;
+  background: none;
 }
 
-.blog-post-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0 var(--shadow);
+.blog-post-card:last-child {
+  border-bottom: none;
 }
 
 .post-link {
@@ -24,50 +21,48 @@
   border: none;
 }
 
-.post-title {
-  font-size: 2rem;
-  font-weight: 900;
-  margin: 0 0 1rem 0;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  transition: color 0.2s;
+.commit-header {
+  margin-bottom: 0.25rem;
 }
 
-.post-link:hover .post-title {
-  color: var(--accent);
-}
-
-.post-date {
-  display: block;
-  font-size: 1rem;
+.commit-label {
   color: var(--text-secondary);
-  margin-bottom: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: 400;
 }
 
-.post-excerpt {
-  margin: 1rem 0 0 0;
+.commit-hash {
+  color: var(--yellow);
+  font-weight: 400;
+}
+
+.commit-meta {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.commit-message {
   color: var(--text-primary);
-  line-height: 1.6;
-  font-weight: 500;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  white-space: pre-wrap;
+}
+
+.commit-body {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  white-space: pre-wrap;
+  font-weight: 400;
+}
+
+.post-link:hover .commit-message {
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
   .blog-post-card {
-    border-width: 4px;
-    padding: 1rem;
-    box-shadow: 4px 4px 0 var(--shadow);
-  }
-
-  .blog-post-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--shadow);
-  }
-
-  .post-title {
-    font-size: 1.5rem;
+    padding: 1rem 0;
   }
 }

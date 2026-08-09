@@ -6,32 +6,16 @@ import Hero from '../components/Hero';
 
 interface Props {
   title: string;
-  hero?: string;
   description?: string;
   ogImage?: string;
-  cta?: {
-    label: string;
-    link: string;
-  };
 }
 
-const { title, hero, description, ogImage, cta } = Astro.props;
-
-// Use custom OG image if provided, otherwise use hero image
-const finalOgImage = ogImage || hero;
+const { title, description, ogImage } = Astro.props;
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  ogImage={finalOgImage}
->
-  {hero && (
-    <link slot="head" rel="preload" as="image" href={hero} fetchpriority="high" />
-  )}
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <Header client:idle />
-
-  {hero && <Hero imageUrl={hero} title={title} cta={cta} />}
+  <Hero client:idle />
 
   <main class="homepage-content">
     <div class="prose">
