@@ -1,0 +1,56 @@
+.gradient-cta {
+  background: var(--gradient);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.gradient-cta h2 {
+  color: white;
+  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0 0 2rem;
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  text-transform: none;
+  -webkit-text-fill-color: white;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: #1A1A1A;
+  border-radius: 100px;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+  background: white;
+  color: #1A1A1A;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .gradient-cta {
+    padding: 4rem 1.5rem;
+  }
+
+  .gradient-cta h2 {
+    font-size: 2rem;
+  }
+}

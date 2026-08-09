@@ -1,95 +1,163 @@
 .hero-section {
-  width: 100%;
-  margin: 0;
-  border-bottom: 8px solid var(--border);
-}
-
-.hero-image {
-  height: 500px;
-  position: relative;
-  border: 8px solid var(--border);
-  box-shadow: 12px 12px 0 var(--shadow);
-  overflow: hidden;
-}
-
-.hero-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--overlay);
+  min-height: calc(100vh - 5rem);
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.hero-content {
-  text-align: center;
-  color: var(--hero-text);
   padding: 2rem;
 }
 
-.hero-title {
-  font-size: 4rem;
-  font-weight: 900;
-  margin: 0 0 2rem 0;
-  text-shadow: 4px 4px 0 var(--shadow);
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 0 0 60%;
+}
+
+.hero-name {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  text-transform: none;
+}
+
+.hero-name span {
+  display: block;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
+  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
 }
 
-.hero-cta {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--accent);
-  color: var(--bg-primary);
-  text-decoration: none;
-  font-weight: 900;
-  border: 4px solid var(--border);
-  text-transform: uppercase;
+.hero-role {
+  color: var(--accent) !important;
+  font-size: 3rem !important;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
   font-size: 1.25rem;
-  box-shadow: 6px 6px 0 var(--shadow);
-  transition: all 0.2s ease;
+  margin: 2rem 0;
+  font-weight: 400;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
 }
 
-.hero-cta:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(--shadow);
-  background: var(--bg-secondary);
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 100px;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border: none;
+}
+
+.btn-gradient {
+  background: var(--gradient);
+  color: white;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  color: white;
+  background: var(--gradient);
+  text-decoration: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 2px solid var(--accent);
   color: var(--accent);
 }
 
-.hero-cta:active {
-  transform: translate(2px, 2px);
-  box-shadow: 3px 3px 0 var(--shadow);
+.btn-ghost:hover {
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border: 2px solid var(--accent);
+}
+
+.hero-decoration {
+  position: relative;
+  flex: 0 0 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+}
+
+.gradient-circle {
+  border-radius: 50%;
+  background: var(--gradient);
+}
+
+.gradient-circle-large {
+  width: 300px;
+  height: 300px;
+  opacity: 0.2;
+}
+
+.gradient-circle-small {
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
 }
 
 @media (max-width: 768px) {
-  .hero-image {
-    height: 350px;
-    border-width: 5px;
-    box-shadow: 6px 6px 0 var(--shadow);
+  .hero-section {
+    min-height: auto;
+    padding: 4rem 1.5rem;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
+  .hero-content {
+    flex-direction: column;
   }
 
-  .hero-cta {
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    border-width: 3px;
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-name span {
+    font-size: 3rem;
+  }
+
+  .hero-role {
+    font-size: 2rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+  }
+
+  .hero-decoration {
+    display: none;
   }
 }

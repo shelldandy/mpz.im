@@ -48,27 +48,38 @@ const finalOgImage = ogImage || hero;
   .page-layout {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
   }
 
   .hero {
-    margin: -2rem -1rem 2rem;
+    margin: -2rem -1.5rem 2rem;
     max-height: 300px;
     overflow: hidden;
+    border-radius: 16px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 16px;
   }
 
   .page-content h1 {
+    font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
     margin: 0 0 2rem 0;
     color: var(--text-primary);
+    border: none;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    text-transform: none;
   }
 
   .prose {

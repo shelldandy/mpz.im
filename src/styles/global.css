@@ -1,47 +1,62 @@
-/* CSS Variables for theming - Gruvbox colors */
+/* CSS Variables — Bold Creative palette */
 :root {
-  --bg-primary: #fbf1c7;
-  --bg-secondary: #ebdbb2;
-  --text-primary: #3c3836;
-  --text-secondary: #504945;
-  --accent: #cc241d;
-  --border: #3c3836;
-  --code-bg: #ebdbb2;
-  --code-text: #3c3836;
-  --shadow: rgba(60, 56, 54, 0.3);
-  --overlay: rgba(60, 56, 54, 0.7);
-  --yellow: #d79921;
-  --orange: #d65d0e;
-  --green: #98971a;
-  --aqua: #689d6a;
-  --blue: #458588;
-  --purple: #b16286;
-  --status-success-text: #3c3836;
-  --hero-text: #ffffff;
+  --bg-primary: #FAF9F6;
+  --bg-secondary: #F0EDE6;
+  --text-primary: #1A1A1A;
+  --text-secondary: #5C5C5C;
+  --accent: #FF3366;
+  --accent-2: #6C5CE7;
+  --gradient: linear-gradient(135deg, #FF3366 0%, #6C5CE7 100%);
+  --border: #1A1A1A;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --code-bg: #F0EDE6;
+  --code-text: #1A1A1A;
+  --green: #00B894;
+  --highlight: #FFEB3B;
+  --overlay: rgba(0, 0, 0, 0.5);
+  --hero-text: #1A1A1A;
+  --status-success-text: #1A1A1A;
 }
 
 [data-theme='dark'] {
-  --bg-primary: #282828;
-  --bg-secondary: #3c3836;
-  --text-primary: #ebdbb2;
-  --text-secondary: #d5c4a1;
-  --accent: #fb4934;
-  --border: #ebdbb2;
-  --code-bg: #3c3836;
-  --code-text: #ebdbb2;
-  --shadow: rgba(235, 219, 178, 0.3);
-  --overlay: rgba(40, 40, 40, 0.7);
-  --yellow: #fabd2f;
-  --orange: #fe8019;
-  --green: #b8bb26;
-  --aqua: #8ec07c;
-  --blue: #83a598;
-  --purple: #d3869b;
-  --status-success-text: #1a1a1a;
-  --hero-text: #ffffff;
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #1A1A1A;
+  --text-primary: #F5F5F5;
+  --text-secondary: #A0A0A0;
+  --accent: #FF5588;
+  --accent-2: #A29BFE;
+  --gradient: linear-gradient(135deg, #FF5588 0%, #A29BFE 100%);
+  --border: #F5F5F5;
+  --shadow: rgba(255, 255, 255, 0.05);
+  --code-bg: #1A1A1A;
+  --code-text: #F5F5F5;
+  --green: #55EFC4;
+  --highlight: #FFEB3B;
+  --overlay: rgba(0, 0, 0, 0.7);
+  --status-success-text: #1A1A1A;
 }
 
-/* Reset and base styles */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg-primary: #0D0D0D;
+    --bg-secondary: #1A1A1A;
+    --text-primary: #F5F5F5;
+    --text-secondary: #A0A0A0;
+    --accent: #FF5588;
+    --accent-2: #A29BFE;
+    --gradient: linear-gradient(135deg, #FF5588 0%, #A29BFE 100%);
+    --border: #F5F5F5;
+    --shadow: rgba(255, 255, 255, 0.05);
+    --code-bg: #1A1A1A;
+    --code-text: #F5F5F5;
+    --green: #55EFC4;
+    --highlight: #FFEB3B;
+    --overlay: rgba(0, 0, 0, 0.7);
+    --status-success-text: #1A1A1A;
+  }
+}
+
+/* Reset */
 *,
 *::before,
 *::after {
@@ -59,71 +74,71 @@ html {
 }
 
 body {
-  font-family: 'Courier New', 'Courier', monospace;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.7;
   color: var(--text-primary);
   background: var(--bg-primary);
   min-height: 100vh;
-  font-weight: 700;
+  font-weight: 400;
+  padding-top: 5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Typography - Brutalist style */
+/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 900;
-  line-height: 1.1;
+  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
+  line-height: 1.0;
   margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  border: 5px solid var(--border);
-  padding: 1rem;
-  background: var(--bg-secondary);
-  box-shadow: 8px 8px 0 var(--shadow);
+  letter-spacing: -0.04em;
 }
 
 h1 {
-  font-size: 3.5rem;
-  border-width: 8px;
+  font-size: 4rem;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 2.5rem;
-  border-width: 6px;
+  font-weight: 600;
 }
 
 h3 {
-  font-size: 2rem;
-  border-width: 5px;
+  font-size: 1.75rem;
+  font-weight: 600;
 }
 
 h4 {
-  font-size: 1.5rem;
-  border-width: 4px;
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 p {
   margin-bottom: 1.5rem;
-  font-weight: 500;
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 3px solid var(--accent);
-  font-weight: 700;
+  font-weight: 600;
   transition: all 0.2s ease;
 }
 
 a:hover {
-  background: var(--accent);
-  color: var(--bg-primary);
-  border-bottom: 3px solid var(--border);
+  text-decoration: underline;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Prose styles for markdown content */
@@ -139,24 +154,33 @@ a:hover {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--text-primary);
+  font-weight: 600;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .prose h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--text-primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .prose h4 {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--text-primary);
+  font-size: 1.35rem;
+  font-weight: 600;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .prose ul,
@@ -167,38 +191,38 @@ a:hover {
 
 .prose li {
   margin-bottom: 0.75rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .prose img {
   max-width: 100%;
   height: auto;
-  border: 5px solid var(--border);
+  border-radius: 12px;
   margin: 2rem 0;
-  box-shadow: 12px 12px 0 var(--shadow);
 }
 
 .prose pre {
   background: var(--code-bg);
   color: var(--code-text);
   padding: 1.5rem;
-  border: 4px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   overflow-x: auto;
   margin-bottom: 1.5rem;
   font-size: 1rem;
   line-height: 1.5;
-  box-shadow: 6px 6px 0 var(--shadow);
   max-width: 100%;
 }
 
 .prose code {
   background: var(--code-bg);
   color: var(--accent);
-  padding: 0.3rem 0.6rem;
+  padding: 0.2rem 0.5rem;
   font-size: 0.95em;
   font-family: 'Courier New', 'Courier', monospace;
-  border: 2px solid var(--border);
-  font-weight: 700;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-weight: 600;
   overflow-wrap: break-word;
 }
 
@@ -207,22 +231,21 @@ a:hover {
   color: inherit;
   padding: 0;
   border: none;
+  border-radius: 0;
+  font-weight: 400;
 }
 
 .prose blockquote {
-  border-left: 8px solid var(--accent);
+  border-left: 3px solid var(--accent);
   padding-left: 1.5rem;
   margin: 2rem 0;
   color: var(--text-secondary);
   font-style: italic;
-  font-weight: 700;
-  background: var(--bg-secondary);
-  padding: 1rem 1rem 1rem 1.5rem;
 }
 
 .prose hr {
   border: none;
-  border-top: 5px solid var(--border);
+  border-top: 1px solid var(--border);
   margin: 3rem 0;
 }
 
@@ -230,21 +253,30 @@ a:hover {
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
-  border: 4px solid var(--border);
+  overflow-x: auto;
+  display: block;
 }
 
 .prose th,
 .prose td {
-  padding: 1rem;
-  border: 3px solid var(--border);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
   text-align: left;
-  font-weight: 700;
 }
 
 .prose th {
   background: var(--bg-secondary);
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Responsive typography */
@@ -255,37 +287,25 @@ a:hover {
 
   h1 {
     font-size: 2.5rem;
-    border-width: 6px;
-    padding: 0.75rem;
   }
 
   h2 {
-    font-size: 2rem;
-    border-width: 5px;
-    padding: 0.75rem;
+    font-size: 1.75rem;
   }
 
   h3 {
-    font-size: 1.5rem;
-    border-width: 4px;
-    padding: 0.5rem;
+    font-size: 1.35rem;
   }
 
   h4 {
-    font-size: 1.25rem;
-    border-width: 3px;
-    padding: 0.5rem;
+    font-size: 1.15rem;
   }
 
   .prose h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .prose h3 {
-    font-size: 1.5rem;
-  }
-
-  .prose img {
-    box-shadow: 6px 6px 0 var(--shadow);
+    font-size: 1.35rem;
   }
 }

@@ -10,29 +10,28 @@ interface HeroProps {
   };
 }
 
-const Hero: FunctionalComponent<HeroProps> = ({ imageUrl, title, cta }) => {
+const Hero: FunctionalComponent<HeroProps> = () => {
   return (
-    <div class="hero-section">
-      <div class="hero-image">
-        <img
-          src={imageUrl}
-          alt=""
-          class="hero-img"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <div class="hero-overlay">
-          <div class="hero-content">
-            <h1 class="hero-title">{title}</h1>
-            {cta && (
-              <a href={`/${cta.link}`} class="hero-cta">
-                {cta.label}
-              </a>
-            )}
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-name">
+            <span>MIGUEL</span>
+            <span>PALAU</span>
+            <span class="hero-role">.engineer()</span>
+          </h1>
+          <p class="hero-subtitle">Building digital products for 10+ years.</p>
+          <div class="hero-ctas">
+            <a href="/resume" class="btn btn-gradient">See My Work</a>
+            <a href="/contact" class="btn btn-ghost">Say Hello</a>
           </div>
         </div>
+        <div class="hero-decoration" aria-hidden="true">
+          <div class="gradient-circle gradient-circle-large"></div>
+          <div class="gradient-circle gradient-circle-small"></div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
