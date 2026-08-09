@@ -10,11 +10,10 @@
 .form-label {
   display: block;
   margin-bottom: 0.75rem;
-  font-weight: 900;
+  font-weight: 500;
+  font-family: Georgia, 'Times New Roman', serif;
   color: var(--text-primary);
-  text-transform: uppercase;
   font-size: 1rem;
-  letter-spacing: 0.05em;
 }
 
 .required {
@@ -24,30 +23,27 @@
 .form-input,
 .form-textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
-  font-family: 'Courier New', 'Courier', monospace;
-  font-weight: 700;
-  border: 4px solid var(--border);
-  background: var(--bg-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
   color: var(--text-primary);
-  transition: all 0.2s ease;
-  box-shadow: 4px 4px 0 var(--shadow);
+  transition: border-color 0.2s ease;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
   border-color: var(--accent);
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--shadow);
 }
 
 .form-input:disabled,
 .form-textarea:disabled {
-  background: var(--bg-secondary);
-  cursor: not-allowed;
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .form-textarea {
@@ -57,69 +53,62 @@
 
 .char-count {
   text-align: right;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   margin-top: 0.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .form-status {
   padding: 1rem;
   margin-bottom: 1.5rem;
   font-size: 1rem;
-  border: 4px solid var(--border);
-  font-weight: 700;
-  box-shadow: 4px 4px 0 var(--shadow);
+  border: 1px solid var(--border);
+  font-weight: 400;
 }
 
 .form-status-success {
   background: var(--green);
-  color: var(--status-success-text);
-  border-color: var(--border);
+  color: #ffffff;
+  border-color: var(--green);
 }
 
 .form-status-error {
   background: var(--accent);
-  color: var(--bg-primary);
-  border-color: var(--border);
+  color: #ffffff;
+  border-color: var(--accent);
 }
 
 .form-submit {
-  width: 100%;
-  padding: 1.25rem 2rem;
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: var(--bg-primary);
-  background: var(--accent);
-  border: 4px solid var(--border);
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-family: 'Courier New', 'Courier', monospace;
-  box-shadow: 6px 6px 0 var(--shadow);
-  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .form-submit:hover:not(:disabled) {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(--shadow);
-}
-
-.form-submit:active:not(:disabled) {
-  transform: translate(2px, 2px);
-  box-shadow: 3px 3px 0 var(--shadow);
+  background: var(--accent);
+  color: var(--bg-primary);
 }
 
 .form-submit:disabled {
-  background: var(--text-secondary);
-  cursor: not-allowed;
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .form-submit:focus {
   outline: none;
-  border-color: var(--border);
+}
+
+.form-submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .captcha-container {
@@ -135,7 +124,7 @@
 .captcha-warning {
   color: var(--text-secondary);
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -147,13 +136,11 @@
   .form-input,
   .form-textarea {
     font-size: 16px; /* Prevents zoom on iOS */
-    border-width: 3px;
   }
 
   .form-submit {
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border-width: 3px;
+    width: 100%;
+    text-align: center;
   }
 
   .captcha-container {

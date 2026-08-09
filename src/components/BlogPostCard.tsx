@@ -5,14 +5,12 @@ interface BlogPostCardProps {
   title: string;
   date: Date;
   slug: string;
-  excerpt?: string;
 }
 
 const BlogPostCard: FunctionalComponent<BlogPostCardProps> = ({
   title,
   date,
   slug,
-  excerpt
 }) => {
   const formattedDate = new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
@@ -23,11 +21,10 @@ const BlogPostCard: FunctionalComponent<BlogPostCardProps> = ({
   return (
     <article class="blog-post-card">
       <a href={`/posts/${slug}`} class="post-link">
-        <h2 class="post-title">{title}</h2>
+        <span class="post-title">{title}</span>
         <time class="post-date" datetime={date.toISOString()}>
           {formattedDate}
         </time>
-        {excerpt && <p class="post-excerpt">{excerpt}</p>}
       </a>
     </article>
   );

@@ -26,12 +26,9 @@ const finalOgImage = ogImage || hero;
   description={description}
   ogImage={finalOgImage}
 >
-  {hero && (
-    <link slot="head" rel="preload" as="image" href={hero} fetchpriority="high" />
-  )}
   <Header client:idle />
 
-  {hero && <Hero imageUrl={hero} title={title} cta={cta} />}
+  <Hero title={title} cta={cta} />
 
   <main class="homepage-content">
     <div class="prose">
@@ -39,18 +36,18 @@ const finalOgImage = ogImage || hero;
     </div>
   </main>
 
-  <Footer />
+  <Footer client:idle />
 </BaseLayout>
 
 <style>
   .homepage-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 4rem 2rem 6rem;
   }
 
   .prose {
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--text-primary);
   }
 </style>

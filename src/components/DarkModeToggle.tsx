@@ -36,7 +36,7 @@ const DarkModeToggle: FunctionalComponent = () => {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       type="button"
     >
-      {isDark ? '☀' : '☾'}
+      {isDark ? 'Light' : 'Dark'}
     </button>
   );
 };

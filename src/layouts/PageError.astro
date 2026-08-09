@@ -19,14 +19,14 @@ const { title = '404 - Page Not Found' } = Astro.props;
     </div>
   </main>
 
-  <Footer />
+  <Footer client:idle />
 </BaseLayout>
 
 <style>
   .error-layout {
     max-width: 800px;
     margin: 0 auto;
-    padding: 4rem 1rem;
+    padding: 8rem 2rem;
     min-height: 60vh;
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@ const { title = '404 - Page Not Found' } = Astro.props;
 
   .error-content {
     text-align: center;
-    line-height: 1.7;
-    color: #333;
+    line-height: 1.8;
+    color: var(--text-primary);
   }
 </style>

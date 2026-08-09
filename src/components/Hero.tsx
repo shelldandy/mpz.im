@@ -2,7 +2,6 @@ import type { FunctionalComponent } from 'preact';
 import './Hero.css';
 
 interface HeroProps {
-  imageUrl: string;
   title: string;
   cta?: {
     label: string;
@@ -10,29 +9,22 @@ interface HeroProps {
   };
 }
 
-const Hero: FunctionalComponent<HeroProps> = ({ imageUrl, title, cta }) => {
+const Hero: FunctionalComponent<HeroProps> = ({ title, cta }) => {
   return (
-    <div class="hero-section">
-      <div class="hero-image">
-        <img
-          src={imageUrl}
-          alt=""
-          class="hero-img"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <div class="hero-overlay">
-          <div class="hero-content">
-            <h1 class="hero-title">{title}</h1>
-            {cta && (
-              <a href={`/${cta.link}`} class="hero-cta">
-                {cta.label}
-              </a>
-            )}
-          </div>
-        </div>
+    <section class="hero-section">
+      <h1 class="hero-name">Miguel Palau</h1>
+      <div class="hero-rule"></div>
+      <span class="hero-label">Senior Software Engineer</span>
+      <p class="hero-bio">
+        With a decade of experience at companies like Grafana Labs and Cratejoy,
+        I build reliable software with TypeScript, React, and Go. I care about
+        clean code, open source, and shipping things that matter.
+      </p>
+      <div class="hero-links">
+        <a href="/resume" class="hero-cta">View resume &rarr;</a>
+        <a href="/contact" class="hero-secondary">or get in touch</a>
       </div>
-    </div>
+    </section>
   );
 };
 

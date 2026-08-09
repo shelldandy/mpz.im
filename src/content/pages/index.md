@@ -1,14 +1,13 @@
 ---
 title: Miguel Palau
-hero: /images/hero.webp
 cta:
-  label: Resume
+  label: View resume
   link: "resume"
 ---
 
-Hi there! Thanks for stopping by 👋
+Hi there! Thanks for stopping by.
 
-My name is Miguel Palau I'm a Software Engineer from [Puebla, México](https://en.wikipedia.org/wiki/Puebla)
+My name is Miguel Palau I'm a Software Engineer from [Puebla, Mexico](https://en.wikipedia.org/wiki/Puebla)
 
 I love working with modern web technologies and I'm passionate about always staying sharp on my skills and learning new stuff all the time.
 
